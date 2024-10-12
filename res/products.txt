@@ -1,1 +1,71 @@
+B19X7:Bananas:Fresh Produce:Tropical Farms:50:100:20
+A12P8:Tomatoes:Fresh Produce:Agri Harvest:60:80:15
+Z4Q8K:Potatoes:Fresh Produce:Tropical Farms:45:120:25
+X77L2:Chicken Breast:Meat and Poultry:Meat Master:150:50:10
+L34D9:Pork Belly:Meat and Poultry:AgriMeats:220:30:8
+F56Y3:Beef Sirloin:Meat and Poultry:Meat Master:350:20:5
+T9K22:Whole Milk:Dairy Products:PureFresh Dairy:65:100:15
+V77C5:Cheddar Cheese:Dairy Products:DairyLand:120:40:10
+H9M81:Salted Butter:Dairy Products:DairyLand:180:25:8
+Q22Z6:Potato Chips:Snacks:Snackaroo:55:150:30
+Y9D73:Chocolate Bar:Snacks:Choco Bliss:35:200:50
+P1V83:Crackers:Snacks:Snackaroo:25:180:40:
+W9B27:Canned Tuna:Canned Goods:SeaBest:70:90:20
+K6R19:Corned Beef:Canned Goods:BeefItUp:95:110:25
+M47L2:Sardines in Tomato Sauce:Canned Goods:FishKing:50:130:30
+D5L9Z:All-Purpose Flour:Baking Ingredients:Baker's Choice:45:100:20
+C8K72:White Sugar:Baking Ingredients:Sweet Harvest:60:90:15
+F3N29:Baking Powder:Baking Ingredients:Baker's Choice:25:70:10
+J9H44:Cooking Oil:Kitchen Essentials:OilBest:180:60:12
+N1X99:Soy Sauce:Kitchen Essentials:Condiment King:35:140:30
+L0W88:Vinegar:Kitchen Essentials:Condiment King:25:130:25
+B2H84:Carrots:Fresh Produce:Agri Harvest:45:90:20:Available
+P5V33:Green Beans:Fresh Produce:Tropical Farms:40:80:15
+J8C77:Mangoes:Fresh Produce:Tropical Farms:70:60:10
+K7D21:Eggplant:Fresh Produce:Agri Harvest:55:110:25
+T3F12:Broccoli:Fresh Produce:Agri Harvest:85:50:10
+Q5L72:Ground Pork:Meat and Poultry:AgriMeats:180:40:10
+M6T19:Chicken Wings:Meat and Poultry:Meat Master:120:60:15
+N8X31:Beef Ribs:Meat and Poultry:Meat Master:400:20:5
+C4K11:Ham:Meat and Poultry:Meat Master:200:35:8
+W1J88:Whole Chicken:Meat and Poultry:AgriMeats:170:45:12
+Y7B24:Fresh Milk:Dairy Products:PureFresh Dairy:65:120:20
+P6L33:Low-Fat Yogurt:Dairy Products:DairyLand:85:40:10
+Z2H99:Processed Cheese:Dairy Products:DairyLand:110:50:12
+K4T62:Ice Cream:Dairy Products:ColdDelight:180:25:8
+T9F83:Buttercream Spread:Dairy Products:ColdDelight:160:30:8
+H2Y56:Popcorn:Snacks:Snackaroo:50:140:30
+L8V44:Peanut Butter:Snacks:NuttyKing:90:100:20
+X3Z19:Mixed Nuts:Snacks:Snackaroo:120:75:15
+B4M51:Instant Noodles:Snacks:QuickBite:25:180:40
+D7V88:Nachos:Snacks:Snackaroo:60:130:30
+P1X20:Spaghetti:Snacks:PastaLovers:80:90:25
+Q8Z91:Canned Corn:Canned Goods:VeggieBest:60:100:20
+T7B38:Canned Mushrooms:Canned Goods:VeggieBest:70:85:18
+V9L13:Vienna Sausage:Canned Goods:MeatKing:95:110:25
+W3F66:Spam:Canned Goods:MeatKing:180:60:12
+Y8K42:Canned Pineapple:Canned Goods:FruityDelight:55:75:15
+N3V93:Bread Flour:Baking Ingredients:Baker's Choice:50:90:20
+C1L29:Brown Sugar:Baking Ingredients:Sweet Harvest:65:80:15
+D9T12:Yeast:Baking Ingredients:Baker's Choice:30:60:10
+H7B84:Baking Soda:Baking Ingredients:Baker's Choice:25:70:10
+T5L27:Vanilla Extract:Baking Ingredients:Sweet Harvest:120:25:5
+M9V88:Cornstarch:Baking Ingredients:Sweet Harvest:35:100:20
+P7Z44:Cocoa Powder:Baking Ingredients:Sweet Harvest:150:40:10
+Z4C23:Cooking Salt:Kitchen Essentials:Condiment King:30:120:25
+B1F72:Ketchup:Kitchen Essentials:Condiment King:45:110:20
+Y3T50:Mustard:Kitchen Essentials:Condiment King:50:90:18
+W5H13:Cooking Wine:Kitchen Essentials:OilBest:150:30:10
+F2J99:Coconut Oil:Kitchen Essentials:OilBest:160:50:12
+Q1N21:Black Pepper:Kitchen Essentials:SpiceMaster:40:100:20
+M4R92:Oregano:Kitchen Essentials:SpiceMaster:35:80:15
+T6K53:Garlic Powder:Kitchen Essentials:SpiceMaster:50:70:12
+L5P18:Chili Flakes:Kitchen Essentials:SpiceMaster:45:85:18
+P3V77:Dishwashing Liquid:Household Products:CleanPro:120:40:10
+K2N46:Laundry Detergent:Household Products:CleanPro:180:30:12
+X7M14:Toilet Paper:Household Products:CleanPro:60:200:30
+B9Y24:Floor Cleaner:Household Products:CleanPro:90:50:12
+C3X81:Hand Soap:Household Products:CleanPro:40:150:20
+F9V77:Shampoo:Household Products:CleanPro:150:60:15
+L2H35:Toothpaste:Household Products:CleanPro:80:90:18
 
