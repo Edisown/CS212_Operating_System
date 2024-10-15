@@ -1,72 +1,150 @@
-B19X7:Bananas:Fresh Produce:Tropical Farms:50:100:20
-A12P8:Tomatoes:Fresh Produce:Agri Harvest:60:80:15
-Z4Q8K:Potatoes:Fresh Produce:Tropical Farms:45:120:25
-X77L2:Chicken Breast:Meat and Poultry:Meat Master:150:50:10
-L34D9:Pork Belly:Meat and Poultry:AgriMeats:220:30:8
-F56Y3:Beef Sirloin:Meat and Poultry:Meat Master:350:20:5
-T9K22:Whole Milk:Dairy Products:PureFresh Dairy:65:100:15
-V77C5:Cheddar Cheese:Dairy Products:DairyLand:120:40:10
-H9M81:Salted Butter:Dairy Products:DairyLand:180:25:8
-Q22Z6:Potato Chips:Snacks:Snackaroo:55:150:30
-Y9D73:Chocolate Bar:Snacks:Choco Bliss:35:200:50
-P1V83:Crackers:Snacks:Snackaroo:25:180:40:
-W9B27:Canned Tuna:Canned Goods:SeaBest:70:90:20
-K6R19:Corned Beef:Canned Goods:BeefItUp:95:110:25
-M47L2:Sardines in Tomato Sauce:Canned Goods:FishKing:50:130:30
-D5L9Z:All-Purpose Flour:Baking Ingredients:Baker's Choice:45:100:20
-C8K72:White Sugar:Baking Ingredients:Sweet Harvest:60:90:15
-F3N29:Baking Powder:Baking Ingredients:Baker's Choice:25:70:10
-J9H44:Cooking Oil:Kitchen Essentials:OilBest:180:60:12
-N1X99:Soy Sauce:Kitchen Essentials:Condiment King:35:140:30
-L0W88:Vinegar:Kitchen Essentials:Condiment King:25:130:25
-B2H84:Carrots:Fresh Produce:Agri Harvest:45:90:20:Available
-P5V33:Green Beans:Fresh Produce:Tropical Farms:40:80:15
-J8C77:Mangoes:Fresh Produce:Tropical Farms:70:60:10
-K7D21:Eggplant:Fresh Produce:Agri Harvest:55:110:25
-T3F12:Broccoli:Fresh Produce:Agri Harvest:85:50:10
-Q5L72:Ground Pork:Meat and Poultry:AgriMeats:180:40:10
-M6T19:Chicken Wings:Meat and Poultry:Meat Master:120:60:15
-N8X31:Beef Ribs:Meat and Poultry:Meat Master:400:20:5
-C4K11:Ham:Meat and Poultry:Meat Master:200:35:8
-W1J88:Whole Chicken:Meat and Poultry:AgriMeats:170:45:12
-Y7B24:Fresh Milk:Dairy Products:PureFresh Dairy:65:120:20
-P6L33:Low-Fat Yogurt:Dairy Products:DairyLand:85:40:10
-Z2H99:Processed Cheese:Dairy Products:DairyLand:110:50:12
-K4T62:Ice Cream:Dairy Products:ColdDelight:180:25:8
-T9F83:Buttercream Spread:Dairy Products:ColdDelight:160:30:8
-H2Y56:Popcorn:Snacks:Snackaroo:50:140:30
-L8V44:Peanut Butter:Snacks:NuttyKing:90:100:20
-X3Z19:Mixed Nuts:Snacks:Snackaroo:120:75:15
-B4M51:Instant Noodles:Snacks:QuickBite:25:180:40
-D7V88:Nachos:Snacks:Snackaroo:60:130:30
-P1X20:Spaghetti:Snacks:PastaLovers:80:90:25
-Q8Z91:Canned Corn:Canned Goods:VeggieBest:60:100:20
-T7B38:Canned Mushrooms:Canned Goods:VeggieBest:70:85:18
-V9L13:Vienna Sausage:Canned Goods:MeatKing:95:110:25
-W3F66:Spam:Canned Goods:MeatKing:180:60:12
-Y8K42:Canned Pineapple:Canned Goods:FruityDelight:55:75:15
-N3V93:Bread Flour:Baking Ingredients:Baker's Choice:50:90:20
-C1L29:Brown Sugar:Baking Ingredients:Sweet Harvest:65:80:15
-D9T12:Yeast:Baking Ingredients:Baker's Choice:30:60:10
-H7B84:Baking Soda:Baking Ingredients:Baker's Choice:25:70:10
-T5L27:Vanilla Extract:Baking Ingredients:Sweet Harvest:120:25:5
-M9V88:Cornstarch:Baking Ingredients:Sweet Harvest:35:100:20
-P7Z44:Cocoa Powder:Baking Ingredients:Sweet Harvest:150:40:10
-Z4C23:Cooking Salt:Kitchen Essentials:Condiment King:30:120:25
-B1F72:Ketchup:Kitchen Essentials:Condiment King:45:110:20
-Y3T50:Mustard:Kitchen Essentials:Condiment King:50:90:18
-W5H13:Cooking Wine:Kitchen Essentials:OilBest:150:30:10
-F2J99:Coconut Oil:Kitchen Essentials:OilBest:160:50:12
-Q1N21:Black Pepper:Kitchen Essentials:SpiceMaster:40:100:20
-M4R92:Oregano:Kitchen Essentials:SpiceMaster:35:80:15
-T6K53:Garlic Powder:Kitchen Essentials:SpiceMaster:50:70:12
-L5P18:Chili Flakes:Kitchen Essentials:SpiceMaster:45:85:18
-P3V77:Dishwashing Liquid:Household Products:CleanPro:120:40:10
-K2N46:Laundry Detergent:Household Products:CleanPro:180:30:12
-X7M14:Toilet Paper:Household Products:CleanPro:60:200:30
-B9Y24:Floor Cleaner:Household Products:CleanPro:90:50:12
-C3X81:Hand Soap:Household Products:CleanPro:40:150:20
-F9V77:Shampoo:Household Products:CleanPro:150:60:15
-L2H35:Toothpaste:Household Products:CleanPro:80:90:18
-N4M23:Cake Mix:Baking Ingredients: :75:60:15
-
+CC1003X:Piattos Sour Cream:Chips & Crackers:Jack'n Jill:30:95
+CN2394E:UFC Banana Ketchup:Condiments:UFC:45:120
+PN1001A:Royal Spaghetti:Pasta & Noodles:Royal:70:80
+DE3001L:Magnolia Butter:Dairy & Eggs:Magnolia:90:60
+FD2403K:Selecta Ice Cream:Frozen Desserts:Selecta:130:150
+BV5002M:Nescafé 3-in-1 Coffee:Beverages:Nescafé:65:110
+BB1005T:Gardenia Classic White:Bread & Bakery:Gardenia:55:100
+CN2004Z:Silver Swan Soy Sauce:Condiments:Silver Swan:25:200
+IN5001U:Pancit Canton Original:Instant Noodles:Lucky Me:12:500
+DE4001F:Alaska Evaporated Milk:Dairy & Eggs:Alaska:50:130
+CN2001D:Datu Puti Vinegar:Condiments:Datu Puti:20:150
+BC3003B:Skyflakes Crackers:Biscuits & Cookies:Monde M.Y.:50:140
+CG2002G:Spam Luncheon Meat:Canned Goods:Spam:180:90
+CC1006H:La Pacita Crackers:Chips & Crackers:La Pacita:20:130
+DE3001R:Alaska Powdered Milk:Dairy & Eggs:Alaska:70:160
+BV6002Q:Tang Pineapple Juice:Beverages:Tang:35:200
+CG1004J:Argentina Corned Beef:Canned Goods:Argentina:95:80
+BV3005K:Coca-Cola 1L:Beverages:Coca-Cola:45:300
+CC1007C:Rebisco Crackers:Chips & Crackers:Rebisco:28:140
+IN6003O:Lucky Me Instant Noodles:Instant Noodles:Lucky Me:10:320
+CG2002P:Century Tuna Flakes:Canned Goods:Century Tuna:60:210
+DE5001W:Dutch Mill Yogurt Drink:Dairy & Eggs:Dutch Mill:25:100
+DE6005V:Nestlé Fresh Milk:Dairy & Eggs:Nestlé:85:190
+BC1008Y:M.Y. San Graham Crackers:Biscuits & Cookies:M.Y. San:75:220
+CC3006L:Oishi Ridges:Chips & Crackers:Oishi:35:140
+BC3002E:Fita Crackers:Biscuits & Cookies:Monde Nissin:25:180
+FM2009N:Purefoods Hotdogs:Frozen Meats:Purefoods:120:95
+CC5007F:Clover Chips:Chips & Crackers:Jack'n Jill:35:160
+CN4002K:Silver Swan Fish Sauce:Condiments:Silver Swan:30:140
+BV5004B:Del Monte Pineapple Juice:Beverages:Del Monte:35:180
+DE3004R:Magnolia Cheese:Dairy & Eggs:Magnolia:110:115
+CN5008H:Datu Puti Soy Sauce:Condiments:Datu Puti:25:140
+BC4003N:Rebisco Choco Biscuits:Biscuits & Cookies:Rebisco:45:110
+PS6006J:B-Meg Layer Mash:Pet Supplies:B-Meg:550:45
+BB7002U:Gardenia Wheat Bread:Bread & Bakery:Gardenia:65:120
+CG7007T:CDO Liver Spread:Canned Goods:CDO:18:130
+CN4001Y:Del Monte Ketchup:Condiments:Del Monte:40:150
+CC5001Z:Hansel Crackers:Chips & Crackers:Rebisco:35:140
+BV8001X:Milo Choco Malt Drink:Beverages:Nestlé:45:150
+IN7001M:Nissin Cup Noodles:Instant Noodles:Nissin:35:210
+CG8002D:555 Sardines in Tomato:Canned Goods:555:25:300
+BV5004B:Zesto Orange Juice:Beverages:Zesto:12:350
+CG8006S:Del Monte Tomato Sauce:Canned Goods:Del Monte:25:140
+CC6009V:Nova Multigrain Chips:Chips & Crackers:Jack'n Jill:35:110
+CN7003L:UFC Tamis Anghang Ketchup:Condiments:UFC:50:120
+CG5001A:Century Tuna Hot & Spicy:Canned Goods:Century Tuna:55:130
+CC8003K:Oishi Prawn Crackers:Chips & Crackers:Oishi:25:170
+DE9007E:Angel Evaporada:Dairy & Eggs:Angel Condensada:45:150
+IN8008H:Payless Pancit Canton:Instant Noodles:Payless:8:500
+CN5009R:Papa Banana Ketchup:Condiments:Papa:45:130
+CG6004J:Purefoods Corned Beef:Canned Goods:Purefoods:90:85
+DE1010X:Alaska Fortified Powdered:Dairy & Eggs:Alaska:65:90
+CC8007Z:Snacku Vegetable Chips:Chips & Crackers:Oishi:20:150
+IN9001M:Nissin Yakisoba:Instant Noodles:Nissin:20:110
+BC7001O:M.Y. San Broas:Biscuits & Cookies:M.Y. San:55:120
+BV7005G:Eight O'Clock Powdered Juice:Beverages:Eight O'Clock:10:210
+CG9004T:Del Monte Spaghetti Sauce:Canned Goods:Del Monte:65:85
+CG9006N:Ligo Sardines in Oil:Canned Goods:Ligo:30:200
+BV9008B:Milo NUTRI-UP:Beverages:Nestlé:55:100
+DE1010D:Nestlé Carnation Evap Milk:Dairy & Eggs:Nestlé:55:110
+BV9007H:Sprite 1L:Beverages:Coca-Cola:45:220
+CN8001F:Datu Puti Spiced Vinegar:Condiments:Datu Puti:35:130
+BC8003P:Oreo Cookies:Biscuits & Cookies:Mondelez:40:120
+CC9009N:Oishi Marty's Chicharon:Chips & Crackers:Oishi:35:140
+CC1010B:Roller Coaster Cheese:Chips & Crackers:Jack'n Jill:35:140
+CN3010A:Lady's Choice Mayonnaise:Condiments:Lady's Choice:90:120
+PN1010P:El Real Spaghetti:Pasta & Noodles:El Real:60:95
+DE3011D:Nestlé All-Purpose Cream:Dairy & Eggs:Nestlé:55:80
+FD2404J:Magnolia Ice Cream Classic:Frozen Desserts:Magnolia:140:160
+BV5010N:Nestea Iced Tea:Beverages:Nestlé:35:180
+BB1006B:Tasty White Bread:Bread & Bakery:Gardenia:50:110
+CN2005E:Lea & Perrins Worcestershire Sauce:Condiments:Lea & Perrins:130:100
+IN5002G:Payless Instant Noodles:Instant Noodles:Payless:10:320
+DE4011K:Nestlé Cream:Dairy & Eggs:Nestlé:60:140
+CN2010F:Heinz Tomato Ketchup:Condiments:Heinz:70:90
+BC3004Q:Rebisco Sandwich:Biscuits & Cookies:Rebisco:10:180
+CG2003P:CDO Karne Norte:Canned Goods:CDO:65:85
+CC1008E:Pringles Sour Cream & Onion:Chips & Crackers:Pringles:150:80
+DE3010W:Magnolia Cheddar Cheese:Dairy & Eggs:Magnolia:100:110
+BV6011M:Gatorade Orange:Beverages:Gatorade:40:250
+CG1005C:CDO Meatloaf:Canned Goods:CDO:35:140
+CC1011H:Ridges Barbecue Chips:Chips & Crackers:Oishi:30:120
+IN6004D:Lucky Me Bulalo Noodles:Instant Noodles:Lucky Me:10:200
+CG2004Y:555 Mackerel in Tomato Sauce:Canned Goods:555:55:180
+DE5002Z:Yakult Probiotic Drink:Dairy & Eggs:Yakult:10:300
+DE6007N:Selecta Moo Milk:Dairy & Eggs:Selecta:20:180
+BC1010E:Marie Biscuits:Biscuits & Cookies:M.Y. San:35:160
+CC3007T:Mr. Chips Nacho Cheese:Chips & Crackers:Jack'n Jill:25:200
+BC3005S:Hansel Sandwich:Biscuits & Cookies:Rebisco:10:250
+FM2010R:Magnolia Chicken Nuggets:Frozen Meats:Magnolia:150:75
+CC5008O:Tostillas Corn Chips:Chips & Crackers:Jack'n Jill:25:130
+CN4003H:Tabasco Sauce:Condiments:McIlhenny:120:50
+BV5006R:Royal Tru Orange:Beverages:Coca-Cola:35:150
+DE3010G:Che-Vital Powdered Milk:Dairy & Eggs:Che-Vital:80:200
+CN5007A:Knorr Liquid Seasoning:Condiments:Knorr:60:160
+BC4004V:Hello Panda Choco Biscuits:Biscuits & Cookies:Meiji:50:120
+PS6007C:Whiskas Cat Food:Pet Supplies:Whiskas:60:100
+BB7003J:Pan de Manila Pandesal:Bread & Bakery:Pan de Manila:40:90
+CG7010W:Campbell's Cream of Mushroom:Canned Goods:Campbell's:65:85
+CN3001S:Del Monte Quick n' Easy Marinade:Condiments:Del Monte:35:160
+CC1012K:Piattos Cheese:Chips & Crackers:Jack'n Jill:30:170
+BV8002Y:Mountain Dew:Beverages:Pepsi:45:230
+IN7002P:Nongshim Shin Ramyun:Instant Noodles:Nongshim:45:130
+CG8007M:San Marino Corned Tuna:Canned Goods:San Marino:50:150
+BV5007H:Del Monte Fit n' Right:Beverages:Del Monte:35:100
+CG8008A:Hunt's Pork and Beans:Canned Goods:Hunt's:40:110
+IN8005K:Payless Lucky Me Noodles:Instant Noodles:Payless:9:450
+BC7002H:Choco Mucho Cookies:Biscuits & Cookies:Choco Mucho:45:190
+DE9008F:Angel Condensada:Dairy & Eggs:Angel Condensada:40:190
+FM2008C:Magnolia Chicken Franks:Frozen Meats:Magnolia:110:85
+CC1013Z:V-Cut Potato Chips:Chips & Crackers:Jack'n Jill:30:210
+CN7004N:Heinz Distilled White Vinegar:Condiments:Heinz:55:110
+BC8004S:Ovaltine Cookies:Biscuits & Cookies:Ovaltine:30:170
+BV7006L:Minute Maid Pulpy Orange:Beverages:Coca-Cola:45:200
+CG9007Q:Ligo Sardines in Tomato:Canned Goods:Ligo:25:280
+CG5002B:Purefoods Luncheon Meat:Canned Goods:Purefoods:90:100
+DE3010J:Bear Brand Fortified Milk:Dairy & Eggs:Bear Brand:60:190
+BV5008M:Zesto Dalandan Juice:Beverages:Zesto:10:240
+CN9002W:Kikkoman Soy Sauce:Condiments:Kikkoman:65:130
+BC8005R:Tiger Crackers:Biscuits & Cookies:Monde Nissin:30:160
+CC6008K:Doritos Nacho Cheese:Chips & Crackers:Doritos:50:90
+IN9002G:Nongshim Kimchi Ramyun:Instant Noodles:Nongshim:50:110
+CG9008B:Campbell's Tomato Soup:Canned Goods:Campbell's:50:100
+DE1011Z:Alaska Choco Powdered Milk:Dairy & Eggs:Alaska:70:180
+BV9009E:Milo Powdered Drink:Beverages:Nestlé:50:200
+PS6008A:Pedigree Dog Food:Pet Supplies:Pedigree:65:95
+CG9009T:Del Monte Corned Beef:Canned Goods:Del Monte:90:120
+BV9010G:Sprite in Can:Beverages:Coca-Cola:30:220
+CN9003X:Toyo Roasted Sesame Dressing:Condiments:Toyo:75:70
+BC9002V:Nissin Eggnog Biscuits:Biscuits & Cookies:Nissin:25:190
+CC9001P:Lay's Classic Potato Chips:Chips & Crackers:Lay's:55:80
+IN7003J:Nissin UFO Yakisoba:Instant Noodles:Nissin:35:140
+CG1009D:555 Sardines with Chili:Canned Goods:555:30:200
+BV9011K:Powerade Mountain Blast:Beverages:Coca-Cola:40:180
+PS6009S:Friskies Cat Food:Pet Supplies:Friskies:50:100
+CG8009F:CDO Chicken Vienna Sausage:Canned Goods:CDO:45:120
+BC7003M:Fita Spreadz Biscuits:Biscuits & Cookies:Monde Nissin:35:110
+CC9004L:Piattos Roadhouse Barbecue:Chips & Crackers:Jack'n Jill:35:120
+DE6006G:Magnolia Fresh Eggs:Dairy & Eggs:Magnolia:65:140
+BV8003H:Zesto Mango Juice:Beverages:Zesto:12:300
+BC9003T:Lotte Pepero:Biscuits & Cookies:Lotte:50:90
+CC9005V:Chippy BBQ:Chips & Crackers:Jack'n Jill:35:170
+FM2011Z:Tender Juicy Hotdogs:Frozen Meats:Purefoods:150:90
+IN7004F:Lucky Me Chow Mein:Instant Noodles:Lucky Me:12:250
+DE9009W:Nestlé Fresh UHT Milk:Dairy & Eggs:Nestlé:55:190
+BC1011R:Knots Berry Farm Cookies:Biscuits & Cookies:Knots Berry Farm:65:70
+CC1014M:Oishi Potato Fries:Chips & Crackers:Oishi:25:150
+BV9012J:RC Cola 1L:Beverages:RC Cola:35:210
+IN9003S:Samyang Spicy Noodles:Instant Noodles:Samyang:55:100
+CG9010F:Libby's Vienna Sausage:Canned Goods:Libby's:40:130
