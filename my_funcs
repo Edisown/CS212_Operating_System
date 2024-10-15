@@ -1,0 +1,8 @@
+#!/bin/bash
+
+center_text() {
+  local text=$1
+  local width=$(tput cols)
+  local spaces=$((  width/ 3 ))
+  printf "%${spaces}s%s\n" "" "$text"
+}
