@@ -1,0 +1,10 @@
+#!bin/bash
+#==================================================
+# Script Name:          disp_prod_by_cat
+# By:                   Xymond Louisse M. Alcazar
+# Group Name:           Team Lemar
+# Purpose:              a script that displays
+#                       products by its category.
+#Command Line:          disp_prod_by_cat
+#==================================================
+products=~/res/IPSdataset.txt

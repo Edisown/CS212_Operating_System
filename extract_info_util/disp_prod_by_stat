@@ -1,0 +1,10 @@
+#!bin/bash
+#==================================================
+# Script Name:          disp_prod_by_stat
+# By:                   Xymond Louisse M. Alcazar
+# Group Name:           Team Lemar
+# Purpose:              a script that displays
+#                       products sorted by status.
+#Command Line:          disp_prod_by_stat
+#==================================================
+products=~/res/IPSdataset.txt

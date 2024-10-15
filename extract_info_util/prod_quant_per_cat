@@ -1,0 +1,13 @@
+#!bin/bash
+#==================================================
+# Script Name:          prod_quant_per_cat
+# By:                   Xymond Louisse M. Alcazar
+# Group Name:           Team Lemar
+# Purpose:              a script that displays
+#			product quantity per
+#			each category.
+#Command Line:          prod_quant_per_cat
+#==================================================
+products=~/res/IPSdataset.txt
+
+
