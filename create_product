@@ -1,4 +1,22 @@
 #!/bin/bash
 # 
 source ./my_funcs
+clear
+while true; do
+	echo -e "\n\n\n\n\n"
+	center_text "Add Product"
+	center_text "======================"
+	center_text "Product Properties"
+	read -p "$(center_text 'Product ID: ')" pid
+	read -p "$(center_text 'Product Name: ')" pname
+	read -p "$(center_text 'Supplier: ')" supplier
+	read -p "$(center_text 'Price: ')" price
+	echo -e "\n"
+	read -p "$(center_text 'Add Product? [Y/N]?: ')" choice
 
+	if [[ "$choice" == [Nn] ]]; then
+		break
+	fi
+
+	
+done
