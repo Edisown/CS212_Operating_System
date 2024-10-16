@@ -1,13 +1,22 @@
 #!bin/bash
 #==================================================
-# Script Name:          prod_quant_per_cat
-# By:                   Xymond Louisse M. Alcazar
-# Group Name:           Team Lemar
-# Purpose:              a script that displays
+# Script Name	:       prod_quant_per_cat
+# By		:       Xymond Louisse M. Alcazar
+# Group Name	:       Team Lemar
+# Purpose	:       a script that displays
 #			product quantity per
 #			each category.
-#Command Line:          prod_quant_per_cat
+# Command Line	:       prod_quant_per_cat
 #==================================================
 products=~/res/IPSdataset.txt
 
+# script for center_text
+source ../my_funcs
 
+while true
+do
+	echo -e "\n\n\n\n\n"
+	center_text "Product Count per Category"
+	center_text "=========================="
+	center_text "Chips & 
+done

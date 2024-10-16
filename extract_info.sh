@@ -1,55 +1,56 @@
 #!bin/bash
 #==================================================
-# Script Name:		extract_info.sh
-# By:			Xymond Louisse M. Alcazar
-# Group Name:		Team Lemar
-# Purpose:		a method that extracts
+# Script Name	:	extract_info.sh
+# By		:	Xymond Louisse M. Alcazar
+# Group Name	:	Team Lemar
+# Purpose	:	a script that extracts
 #			specific informaiton in the
-#			products dataset
-#Command Line:		extract_info.sh
+#			products dataset.
+# Command Line	:	extract_info.sh
 #==================================================
-products=~/res/IPSdataset.txt
+products=~/IPSdataset.txt
 
-#to make the display centered
-center_text=~/my_funcs
+# script for center_text
+source ./my_funcs
 
 while true
 do
 	clear
-	center_text echo "Product Properties"
-	center_text echo "======================="
-	center_text echo "[PC] - Product Quantity per Category"
-	center_text echo "[PS] - Product Count per Status"
-	center_text echo "[CP] - Display Product by Category"
-	center_text echo "[SP] - Display Product by Status"
-	center_text echo "[APC] - Average Product Count per Category"
-	center_text echo "(Press [Q] to quit)"
-	center_text read -p "CHOICE: " choice
+	echo -e "\n\n\n\n\n\n"
+	center_text "Product Properties"
+	center_text "=================="
+	center_text "[PC] - Product Quantity per Category"
+	center_text "[PS] - Product Count per Status"
+	center_text "[CP] - Display Product by Category"
+	center_text "[SP] - Display Product by Status"
+	center_text "[APC] - Average Product Count per Category"
+	center_text "(Press [Q] to quit)"
+	read -p "$(center_text 'CHOICE: ')" choice
 
-	if [[ "$hoice" =~ ^[Qq]$ ]]
+	if [[ "$choice" =~ ^[Qq]$ ]]
 	then
 		clear;exit
 	fi
 
 	case "$choice" in
 	[Pp][Cc])
-		bash ~/extract_info_util/prod_quant_per_cat;;
+		bash ./extract_info_util/prod_quant_per_cat;;
 	[Pp][Ss])
-		bash ~/extract_info_util/prod_quant_per_stat;;
+		bash ./extract_info_util/prod_quant_per_stat;;
 	[Cc][Pp])
-		bash ~/extract_info_util/disp_prod_by_cat;;
+		bash ./extract_info_util/disp_prod_by_cat;;
 	[Ss][Pp])
-		bash ~/extract_info_util/disp_prod_by_stat;;
+		bash ./extract_info_util/disp_prod_by_stat;;
 	[Aa][Pp][Cc])
-		bash ~/extract_info_util/avg_prod_quant_per_cat;;
+		bash ./extract_info_util/avg_prod_quant_per_cat;;
 	*)
-		center_text echo "-- Invalid Entry, Try again --"
+		center_text "-- Invalid Entry, Try again --"
 		continue;;
 	esac
 
 	if test -z "$choice"
 	then
-		center_text echo "-- No entry, Try again --"
+		center_text "-- No entry, Try again --"
 		continue
 	fi
 done

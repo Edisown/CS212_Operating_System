@@ -1,10 +1,39 @@
 #!bin/bash
 #==================================================
-# Script Name:          disp_prod_by_cat
-# By:                   Xymond Louisse M. Alcazar
-# Group Name:           Team Lemar
-# Purpose:              a script that displays
+# Script Name	:       disp_prod_by_cat
+# By		:       Xymond Louisse M. Alcazar
+# Group Name	:       Team Lemar
+# Purpose	:       a script that displays
 #                       products by its category.
-#Command Line:          disp_prod_by_cat
+# Command Line	:       disp_prod_by_cat
 #==================================================
 products=~/res/IPSdataset.txt
+
+# script for center_text
+source ../my_funcs
+
+while true
+do
+        echo -e "\n\n\n\n"
+	center_text "Display Products by Category"
+	center_text "============================"
+        center_text "[CC] - Chips & Crackers"
+        center_text "[CN] - Condiments"
+        center_text "[PN] - Pasta& Noodless"
+        center_text "[DE] - Dairy & Eggs"
+        center_text "[FD] - Frozen Desserts"
+        center_text "[BV] - Beverages"
+        center_text "[BB] - Bread & Bakery"
+        center_text "[IN] - Instant Noodless"
+	center_text "[BC] - Biscuits & Cookies"
+	center_text "[CG] - Canned Goods"
+	center_text "[FM] - Frozen Meat"
+	center_text "[PS] - Pet Supplies"
+	center_text "(Press [Q] to exit)"
+        read -p "$(center_text 'Enter Code: ')" choice
+
+	if [[ "$choice" =~ ^[Qq]$ ]]
+	then
+		clear;exit
+	fi
+done
