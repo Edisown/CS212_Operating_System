@@ -6,11 +6,12 @@
 #
 #Command Line:		update_product.sh
 #==================================================
+source ./my_funcs
 products=~/res/products.txt
 
 update_product(){
-   read -p "$(center_text 'Enter the Name of the Product: ')" product_name
-   record=$(grep "$product_name""$PRODUCTNAME")
+   read -p "$(center_text 'Enter the  of the Product: ')" product_id
+   record=$(grep "$product_id""$products")
 
    if[-z "$record" ]; then
      center_text "No record found for $product_name."
@@ -24,20 +25,42 @@ update_product(){
   product_supplier=$(echo "$record" | cut -d':' -f4)
   product_price=$(echo "$record" | cut -d':' -f5)
   product_quantity=$(echo "$record" | cut -d':' -f6)
-  product_minStock=$(echo "$record" | cut -d':' -f7)
+  product_sales=$(echo "$record" | cut -d':' -f7)
+
 
   # Display formatted output
   center_text
-  "============================================================= <Y/=="
-    center_text "Last Name:        $product_id"
-    center_text "First Name:       $product_name"
-    center_text "Middle Initial:   $product_category"
-    center_text "Dept#:            $product_supplier"
-    center_text "Job Title:        $product_price"
-    center_text "Date Hired:       $product_quantity"
-    center_text "Job Status:       $product_minStock"
+  "==================================================================="
+    center_text "Product ID":      $product_id"
+    center_text "Product Name:     $product_name"
+    center_text "Category:         $product_category"
+    center_text "Supplier:         $product_supplier"
+    center_text "Price:            $product_price"
+    center_text "Quantity:         $product_quantity"
+    center_text "Sales:            $product_sales"
     center_text "==============================================================="
 
-  read -p "$(center_text 'Do you want to proceed?<Y/N>: ')" proceed
+  read -p "$(center_text 'Do you want to edit the quantity of the product?<Y/N>: ')" proceed
+if [[!"$proceed"=1^[Yy]$]]; then
+   return
+fi
+
+# Input the new quantity of the product
+read -p "$(center_text 'New Quantity: ')" new_quantity
+
+# Update the quantity record in the list
+sed -i "s|\(^$product_id:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:\)[^:]*|\1$new_quantity|" "$products"
+sed -i "s|\(^$phone_number:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:\)[^:]*|\1$new_status|" "$products"
+
+  center_text
+  "==================================================================="
+                      New Update of The Product
+  "==================================================================="
+    center_text "Product ID":      $product_id"
+    center_text "Product Name:     $product_name"
+    center_text "Quantity:         $new_quantity"
+    center_text "Sales:            $product_sales"
+    center_text "==============================================================="
+
 
 }
