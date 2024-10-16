@@ -5,7 +5,7 @@
 # TODO: To Create a delete Method for the
 # InventoryManagementSystem.
 #===============================================
-
+source ./my_funcs
 products=~/res/products.txt
 
 delete_product(){
@@ -26,8 +26,7 @@ delete_product(){
     product_supplier=$(echo "$record" | cut -d':' -f4)
     product_price=$(echo "$record" | cut -d':' -f5)
     product_quantity=$(echo "$record" | cut -d':' -f6)
-    product_minStock=$(echo "$record" | cut -d':' -f7)
-
+   
     # Display formatted output
     center_text "========================================== <Y/>="
     center_text "Product ID:         $product_id"
@@ -36,7 +35,6 @@ delete_product(){
     center_text "Supplier:           $product_supplier"
     center_text "Price:              $product_price"
     center_text "Quantity:           $product_quantity"
-    center_text "Minimum Stock:      $product_minStock"
     center_text "=========================================="
 
     # Confirm deletion
@@ -52,9 +50,3 @@ delete_product(){
     fi
 }
 
-center_text(){
-    # This function centers text on the terminal
-    termwidth="$(tput cols)"
-    padding="$(printf '%0.1s' ={1..500})"
-    printf '%*.*s %s %*.*s\n' 0 "$(((termwidth-2-${#1})/2))" "$padding" "$1" 0 "$(((termwidth-1-${#1})/2))" "$padding"
-}
