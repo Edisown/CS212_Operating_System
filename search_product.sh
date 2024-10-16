@@ -8,4 +8,13 @@
 
 products=~/res/IPdataset.txt
 
-center_text=~/my_funcs
+source ./my_funcs
+clear
+
+center_text "Enter the Product ID you want to search forr: "
+read number
+echo
+grep $ProductID $products | tr ':' ' '
+echo
+center_text "Press ENTER to continue..."
+read contnue
