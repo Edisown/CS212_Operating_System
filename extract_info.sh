@@ -8,7 +8,6 @@
 #			products dataset.
 # Command Line	:	extract_info.sh
 #==================================================
-products=~/IPSdataset.txt
 
 # script for center_text
 source ./my_funcs
@@ -19,7 +18,7 @@ do
 	echo -e "\n\n\n\n\n\n"
 	center_text "Product Properties"
 	center_text "=================="
-	center_text "[PC] - Product Quantity per Category"
+	center_text "[PC] - Product Count per Category"
 	center_text "[PS] - Product Count per Status"
 	center_text "[CP] - Display Product by Category"
 	center_text "[SP] - Display Product by Status"

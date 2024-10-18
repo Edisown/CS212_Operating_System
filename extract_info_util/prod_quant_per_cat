@@ -8,15 +8,34 @@
 #			each category.
 # Command Line	:       prod_quant_per_cat
 #==================================================
-products=~/res/IPSdataset.txt
+products=../IPSdataset.txt
 
 # script for center_text
 source ../my_funcs
 
-while true
-do
-	echo -e "\n\n\n\n\n"
-	center_text "Product Count per Category"
-	center_text "=========================="
-	center_text "Chips & 
-done
+#store data fields in a variable for easy access
+IFS=':' read -r PID pName pCategory pBrand price count <<< "$products"
+
+clear
+echo -e "\n\n\n\n\n"
+center_text "Product Count per Category"
+center_text "=========================="
+echo ""
+center_text "Category			Count"
+center_text "-------------------------------"
+center_text "Chips & Crackers		$(grep -c 'CC' $PID)"
+center_text "Condiments		$(grep -c 'CN' $PID)"
+center_text "Pasta & Noodless		$(grep -c 'PN' $PID)"
+center_text "Dairy & Eggs		$(grep -c 'DE' $PID)"
+center_text "Frozen Desserts		$(grep -c 'FD' $PID)"
+center_text "Beverages			$(grep -c 'BV' $PID)"
+center_text "Bread & Bakery		$(grep -c 'BB' $PID)"
+center_text "Instant Noodles		$(grep -c 'IN' $PID)"
+center_text "Biscuits & Cookies	$(grep -c 'BC' $PID)"
+center_text "Canned Goods		$(grep -c 'CG' $PID)"
+center_text "Frozen Meat		$(grep -c 'FM' $PID)"
+center_text "Pet Supplies		$(grep -c 'PS' $PID)"
+echo ""
+center_text "Press [ENTER] to go back to menu"
+read
+clear;exit

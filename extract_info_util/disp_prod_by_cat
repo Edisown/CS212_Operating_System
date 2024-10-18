@@ -24,7 +24,7 @@ do
         center_text "[FD] - Frozen Desserts"
         center_text "[BV] - Beverages"
         center_text "[BB] - Bread & Bakery"
-        center_text "[IN] - Instant Noodless"
+        center_text "[IN] - Instant Noodles"
 	center_text "[BC] - Biscuits & Cookies"
 	center_text "[CG] - Canned Goods"
 	center_text "[FM] - Frozen Meat"
