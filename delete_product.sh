@@ -6,9 +6,9 @@
 # InventoryManagementSystem.
 #===============================================
 source ./my_funcs
-products=~/res/products.txt
+products=./res/IPSdataset.txt
 
-delete_product(){
+
     # Prompt the user for the product name to delete
     read -p "$(center_text 'Enter the Name of the Product to Delete: ')" product_name
     # Search for the product in the file
@@ -16,7 +16,7 @@ delete_product(){
 
     if [ -z "$record" ]; then
         center_text "No record found for $product_name."
-        return
+
     fi
 
     # Extract fields from the record
@@ -30,15 +30,15 @@ delete_product(){
 
    
     # Display formatted output
-    center_text "========================================== <Y/>="
-    center_text "Product ID:         $product_id"
-    center_text "Product Name:       $product_name"
-    center_text "Category:           $product_category"
-    center_text "Supplier:           $product_supplier"
-    center_text "Price:              $product_price"
-    center_text "Quantity:           $product_quantity"
-    center_text "Sales:              $product_sales"
-    center_text "=========================================="
+    center_text  "========================================== <Y/>="
+    center_text  "Product ID:         $product_id"
+    center_text  "Product Name:       $product_name"
+    center_text  "Category:           $product_category"
+    center_text  "Supplier:           $product_supplier"
+    center_text  "Price:              $product_price"
+    center_text  "Quantity:           $product_quantity"
+    center_text  "Sales:              $product_sales"
+    center_text  "=========================================="
 
     # Confirm deletion
     read -p "$(center_text 'Do you want to delete this product? <Y/N>: ')" proceed
@@ -51,5 +51,5 @@ delete_product(){
     else
         center_text "Product deletion canceled."
     fi
-}
+
 
