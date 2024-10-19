@@ -12,7 +12,7 @@ source ./my_funcs
 while true
 do
 	clear
-	echo "\n\n\n\n\n"
+	echo -e "\n\n\n\n\n"
 	center_text "-- Inventory Management System --"
 	center_text "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
 	echo ""

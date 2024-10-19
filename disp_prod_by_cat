@@ -7,10 +7,10 @@
 #                       products by its category.
 # Command Line	:       disp_prod_by_cat
 #==================================================
-products=~/res/IPSdataset.txt
+products=./res/IPSdataset.txt
 
 # script for center_text
-source ../my_funcs
+source ./my_funcs
 
 while true
 do
