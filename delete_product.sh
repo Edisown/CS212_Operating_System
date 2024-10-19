@@ -26,6 +26,8 @@ delete_product(){
     product_supplier=$(echo "$record" | cut -d':' -f4)
     product_price=$(echo "$record" | cut -d':' -f5)
     product_quantity=$(echo "$record" | cut -d':' -f6)
+    product_sales=$(echo "$sales" | cut -d':' -f7)
+
    
     # Display formatted output
     center_text "========================================== <Y/>="
@@ -35,6 +37,7 @@ delete_product(){
     center_text "Supplier:           $product_supplier"
     center_text "Price:              $product_price"
     center_text "Quantity:           $product_quantity"
+    center_text "Sales:              $product_sales"
     center_text "=========================================="
 
     # Confirm deletion
