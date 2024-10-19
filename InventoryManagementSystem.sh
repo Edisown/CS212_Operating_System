@@ -8,7 +8,7 @@
 #=====================================================
 
 #center_text function
-source ./my_funcs
+source ./res/my_funcs
 while true
 do
 	clear
