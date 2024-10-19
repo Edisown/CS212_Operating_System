@@ -1,0 +1,20 @@
+#!/bin/bash
+
+center_text() {
+	local text=$1
+	local width=$(tput cols)
+	local spaces=$(( width / 3 ))
+	printf "%${spaces}s%s\n" "" "$text"
+}
+
+describe_product() {
+	read -p "Product ID: " id	
+	read  -p "Product Name: " name
+	read -p "Category: " category
+	read -p "Supplier: " supplier
+	read -p "Price: " price
+	read -p "Quantity: " quantity
+	read -p "Minimum Stock Level: " min
+}
+
+

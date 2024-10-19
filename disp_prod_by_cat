@@ -7,11 +7,14 @@
 #                       products by its category.
 # Command Line	:       disp_prod_by_cat
 #==================================================
-products=~/res/IPSdataset.txt
+products=./res/IPSdataset.txt
 
 # script for center_text
-source ../my_funcs
-
+source ./res/my_funcs
+category() {
+	while test line > 0
+	do
+}
 while true
 do
         echo -e "\n\n\n\n"
@@ -32,8 +35,21 @@ do
 	center_text "(Press [Q] to exit)"
         read -p "$(center_text 'Enter Code: ')" choice
 
-	if [[ "$choice" =~ ^[Qq]$ ]]
-	then
+	case "$choice" in
+	[Cc][Cc])
+	[Cc][Nn])
+	[Pp][Nn])
+	[Dd][Ee])
+	[Ff][Dd])
+	[Bb][Vv])
+	[Bb][Bb])
+	[Ii][Nn])
+	[Bb][Cc])
+	[Cc][Gg])
+	[Ff][Mm])
+	[Pp][Ss])
+	[Qq])
 		clear;exit
-	fi
+	*)
+	esac
 done

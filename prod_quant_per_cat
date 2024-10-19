@@ -8,13 +8,17 @@
 #			each category.
 # Command Line	:       prod_quant_per_cat
 #==================================================
+<<<<<<< HEAD
 products=../res/IPSdataset.txt
+=======
+products=./res/IPSdataset.txt
+>>>>>>> 8a8bfb59407fa6d9161fe3a9a3987908e4d775fe
 
 # script for center_text
-source ../my_funcs
+source ./res/my_funcs
 
 #store data fields in a variable for easy access
-IFS=':' read -r PID pName pCategory pBrand price count <<< "$products"
+IFS=':' read -r PID pName pCategory pSupplier price count <<< "$products"
 
 clear
 echo -e "\n\n\n\n\n"
