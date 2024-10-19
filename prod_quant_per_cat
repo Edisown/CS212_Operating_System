@@ -8,7 +8,7 @@
 #			each category.
 # Command Line	:       prod_quant_per_cat
 #==================================================
-products=../IPSdataset.txt
+products=../res/IPSdataset.txt
 
 # script for center_text
 source ../my_funcs
