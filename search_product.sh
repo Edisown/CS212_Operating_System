@@ -8,7 +8,7 @@
 
 DATA_FILE=./res/IPSdataset.txt
 
-source ./my_funcs
+source ./res/my_funcs
 clear
 
  # Check if the data file exists
