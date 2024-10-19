@@ -5,7 +5,7 @@
 # TODO: To Create a delete Method for the
 # InventoryManagementSystem.
 #===============================================
-source ./my_funcs
+source ./res/my_funcs
 products=./res/IPSdataset.txt
 
 
@@ -26,6 +26,7 @@ products=./res/IPSdataset.txt
     product_supplier=$(echo "$record" | cut -d':' -f4)
     product_price=$(echo "$record" | cut -d':' -f5)
     product_quantity=$(echo "$record" | cut -d':' -f6)
+<<<<<<< Updated upstream
     product_sales=$(echo "$sales" | cut -d':' -f7)
 
    
@@ -39,6 +40,19 @@ products=./res/IPSdataset.txt
     center_text  "Quantity:           $product_quantity"
     center_text  "Sales:              $product_sales"
     center_text  "=========================================="
+=======
+    product_sales=$(echo "$record" | cut -d':' -f7)
+    # Display formatted output
+    center_text "========================================== <Y/>="
+    center_text "Product ID:         $product_id"
+    center_text "Product Name:       $product_name"
+    center_text "Category:           $product_category"
+    center_text "Supplier:           $product_supplier"
+    center_text "Price:              $product_price"
+    center_text "Quantity:           $product_quantity"
+    center_text "Sales:              $product_sales "
+    center_text "=========================================="
+>>>>>>> Stashed changes
 
     # Confirm deletion
     read -p "$(center_text 'Do you want to delete this product? <Y/N>: ')" proceed
