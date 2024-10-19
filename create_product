@@ -18,5 +18,12 @@ while true; do
 		break
 	fi
 
+	code=$(grep "$pid")
 	
+	case "$pid" in
+		"CC") category="Chips & Crackers" ;;
+		*) center_text "Invalid Product" ;;
+	esac
+
+	center_text "$category"
 done
