@@ -33,15 +33,15 @@ do
 
 	case "$choice" in
 	[Pp][Cc])
-		bash ./extract_info_util/prod_quant_per_cat;;
+		bash ./prod_quant_per_cat;;
 	[Pp][Ss])
-		bash ./extract_info_util/prod_quant_per_stat;;
+		bash ./prod_quant_per_stat;;
 	[Cc][Pp])
-		bash ./extract_info_util/disp_prod_by_cat;;
+		bash ./disp_prod_by_cat;;
 	[Ss][Pp])
-		bash ./extract_info_util/disp_prod_by_stat;;
+		bash ./disp_prod_by_stat;;
 	[Aa][Pp][Cc])
-		bash ./extract_info_util/avg_prod_quant_per_cat;;
+		bash ./avg_prod_quant_per_cat;;
 	*)
 		center_text "-- Invalid Entry, Try again --"
 		continue;;
