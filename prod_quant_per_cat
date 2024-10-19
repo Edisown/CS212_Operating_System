@@ -14,7 +14,7 @@ products=./res/IPSdataset.txt
 source ./res/my_funcs
 
 #store data fields in a variable for easy access
-IFS=':' read -r PID pName pCategory pBrand price count <<< "$products"
+IFS=':' read -r PID pName pCategory pSupplier price count <<< "$products"
 
 clear
 echo -e "\n\n\n\n\n"
