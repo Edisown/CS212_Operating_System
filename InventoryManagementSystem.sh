@@ -23,6 +23,7 @@ do
 	center_text "[S] - Search for Product"
 	center_text "[P] - Product Properties"
 	center_text "[X] - Exit Program"
+	echo ""
 	read -p "$(center_text 'CHOICE: ')" choice
 
 	if [[ "$choice" =~ ^[Xx]$ ]]

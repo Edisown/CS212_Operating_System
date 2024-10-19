@@ -6,11 +6,10 @@
 # Purpose	:	a script that extracts
 #			specific informaiton in the
 #			products dataset.
-# Command Line	:	extract_info.sh
 #==================================================
 
 # script for center_text
-source ./my_funcs
+source ./res/my_funcs
 
 while true
 do
@@ -23,7 +22,9 @@ do
 	center_text "[CP] - Display Product by Category"
 	center_text "[SP] - Display Product by Status"
 	center_text "[APC] - Average Product Count per Category"
+	echo ""
 	center_text "(Press [Q] to quit)"
+	echo ""
 	read -p "$(center_text 'CHOICE: ')" choice
 
 	if [[ "$choice" =~ ^[Qq]$ ]]
