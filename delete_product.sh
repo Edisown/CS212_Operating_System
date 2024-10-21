@@ -1,7 +1,7 @@
 #!/bin/bash
 #===============================================
 # Name: Jhorone Lance M. Roxas
-# Date: Oct 15, 2024 
+# Date: Oct 15, 2024
 # TODO: To Create a delete Method for the
 # InventoryManagementSystem.
 #===============================================
@@ -11,8 +11,9 @@ products=./res/IPSdataset.txt
 
     # Prompt the user for the product name to delete
     read -p "$(center_text 'Enter the Name of the Product to Delete: ')" product_name
+
     # Search for the product in the file
-    record=$(grep "$product_name" "$products")
+    record=$(grep -i "$product_name" "$products")
 
     if [ -z "$record" ]; then
         center_text "No record found for $product_name."
@@ -28,9 +29,8 @@ products=./res/IPSdataset.txt
     product_quantity=$(echo "$record" | cut -d':' -f6)
     product_sales=$(echo "$sales" | cut -d':' -f7)
 
-   
     # Display formatted output
-    center_text  "========================================== <Y/>="
+    center_text  "========================================== <Y/>"
     center_text  "Product ID:         $product_id"
     center_text  "Product Name:       $product_name"
     center_text  "Category:           $product_category"
@@ -40,9 +40,9 @@ products=./res/IPSdataset.txt
     center_text  "Sales:              $product_sales"
     center_text  "=========================================="
     product_sales=$(echo "$record" | cut -d':' -f7)
-    
+
     # Display formatted output
-    center_text "========================================== <Y/>="
+    center_text "========================================== <Y/>"
     center_text "Product ID:         $product_id"
     center_text "Product Name:       $product_name"
     center_text "Category:           $product_category"

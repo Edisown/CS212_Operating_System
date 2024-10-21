@@ -31,8 +31,8 @@ echo -e "\n\n\n\n\n"
 	center_text "================================"
         center_text "Matching products:"
 	center_text "================================"
-        center_text "$results" | while IFS=':' read -r product_id name category supplier price quantity sales; do
-            center_text "Product ID	: $product_id"
+        echo "$results" | while IFS=':' read -r product_id name category supplier price quantity sales; do
+	    center_text "Product ID		: $product_id"
             center_text "Name		: $name"
             center_text "Category		: $category"
             center_text "Supplier		: $supplier"
