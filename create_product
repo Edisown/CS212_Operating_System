@@ -1,6 +1,9 @@
 #!/bin/bash
-# 
-source ./my_funcs
+#====================================
+# Author: Dadpaas, Renz C.
+# Script: Create Product
+#====================================
+source ./res/my_funcs
 clear
 while true; do
 	echo -e "\n\n\n\n\n"
@@ -11,6 +14,7 @@ while true; do
 	read -p "$(center_text 'Product Name: ')" pname
 	read -p "$(center_text 'Supplier: ')" supplier
 	read -p "$(center_text 'Price: ')" price
+	read -p "$(center_text 'Initial Quantity: ')" quantity
 	echo -e "\n"
 	read -p "$(center_text 'Add Product? [Y/N]?: ')" choice
 
@@ -18,12 +22,49 @@ while true; do
 		break
 	fi
 
-	code=$(grep "$pid")
-	
-	case "$pid" in
+	code=$(echo ${pid} |awk '{print	substr($0, 1, 2)}')
+	category=""
+	case "$code" in
 		"CC") category="Chips & Crackers" ;;
-		*) center_text "Invalid Product" ;;
+		"CN") category="Condiments" ;;
+		"PN") category="Pasta & Noodles" ;;
+		"DE") category="Dairy & Eggs" ;;
+		"FD") category="Frozen Desserts" ;;
+		"BV") category="Beverages" ;;
+		"BB") category"Bread & Bakery" ;;
+		"IN") category="Instant Noodles" ;;
+		"BC") category="Biscuits & Cookies" ;;
+		"CG") category="Canned Goods" ;;
+		"FM") category="Frozen Meats" ;;
+		"PS") category="Pet Supplies" ;;
+		*) category="Invalid" ;;
 	esac
-
-	center_text "$category"
+	if [[ "$category" == "Invalid" ]]; then
+		center_text "Product code not applicable..."
+		read -p "$(center_text 'Add again? [Y/N]: ')" option
+		if [[ "$option" == [Yy] ]]; then
+			continue
+		else
+			break
+		fi
+	else
+		center_text "Adding product..."
+		center_text "==============================="
+		center_text "Product ID: $pid "
+		center_text "Product Name: $pname"
+		center_text "Category: $category"
+		center_text "Supplier: $supplier"
+		center_text "Price: $price"
+		center_text "Quantity: $quantity"
+		echo -e "\n"
+		echo "$pid:$pname:$category:$supplier:$price:$quantity:0" >> tmp.txt
+		read -p "$(center_text 'Add more? [Y/N]: ')" option
+		if [[ "$option" == [Yy] ]]; then
+			clear
+			continue
+		else
+			break
+		fi
+	fi
 done
+
