@@ -1,6 +1,6 @@
 #!/bin/bash
 #==========================================================
-# Author        : Roxas, JHorone Lance M.
+# Author        : Espartinas, Carl Angelo B.
 # File Name     : delete_product.sh
 # Purpose       : Allow the user to search and delete a 
 #                 specific product from the inventory.
@@ -28,35 +28,44 @@ if [ -z "$results" ]; then
     center_text "No matching products found."
     exit 0
 else
-    center_text "========================================================="
-    center_text "Matching Products:"
-    center_text "========================================================="
+    center_text "========================================================"
+    center_text "               Matching Products:                       "
+    center_text "========================================================"
     
     # Display matching products with numbering for selection
     echo "$results" | nl -w2 -s'. ' | while IFS=':' read -r num product_id name category supplier price quantity sales; do
-        center_text "[$num]    Product ID    : $product_id"
-        center_text "                 Name          : $name"
-        center_text "                 Category      : $category"
-        center_text "                 Supplier      : $supplier"
-        center_text "                 Price         : $price"
-        center_text "                 Quantity      : $quantity"
-        center_text "                 Sales         : $sales"
-        center_text "-----------------------------------------------------"
+        center_text "[$num] Product ID    : $product_id"
+        center_text "              Name          : $name"
+        center_text "              Category      : $category"
+        center_text "              Supplier      : $supplier"
+        center_text "              Price         : $price"
+        center_text "              Quantity      : $quantity"
+        center_text "              Sales         : $sales"
+        center_text "----------------------------------------------------"
     done
 
-    # Ask the user to select a product to delete by entering its number
-    read -p "$(center_text 'Enter the product number to delete: ')" choice
+    # Loop until a valid selection is made
+    while true;do
+        read -p "$(center_text 'Enter the product number to delete: ')" choice
+        
+       # Check if the input is blank or non-numeric
+       if [[ -z "$choice" ||! "$choice" =~ ^[0-9]+$ ]]; then
+           center_text "Invalid input. Please enter a valid product number."
+           continue # prompt the user again
+       fi
 
-    # Extract the selected product
-    selected=$(echo "$results" | sed -n "${choice}p")
+     # Extract the selected product
+       selected=$(echo "$results" | sed -n "${choice}p")
 
-    if [ -z "$selected" ]; then
-        center_text "Invalid selection. No product deleted."
-        exit 0
-    fi
+       if [ -z "$selected"]; then
+           center_text "No product found for the selected number."
+      else
+         break #valid selection; proceed to confirmation
+        fi
+     done
 
     # Confirm deletion
-    center_text "----------------------------------------"
+    center_text "---------------------------------------------------------"
     center_text "You selected:"
     IFS=':' read -r product_id name category supplier price quantity sales <<< "$selected"
     center_text "Product ID  : $product_id"
@@ -66,7 +75,7 @@ else
     center_text "Price       : $price"
     center_text "Quantity    : $quantity"
     center_text "Sales       : $sales"
-    center_text "----------------------------------------"
+    center_text "---------------------------------------------------------"
 
     read -p "$(center_text 'Do you really want to delete this product? <Y/N>: ')" confirm
 
