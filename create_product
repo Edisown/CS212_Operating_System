@@ -57,7 +57,8 @@ while true; do
 		center_text "Price: $price"
 		center_text "Quantity: $quantity"
 		echo -e "\n"
-		echo "$pid:$pname:$category:$supplier:$price:$quantity:0" >> tmp.txt
+		echo "$pid:$pname:$category:$supplier:$price:$quantity:0" >> ./res/IPSdataset.txt
+
 		read -p "$(center_text 'Add more? [Y/N]: ')" option
 		if [[ "$option" == [Yy] ]]; then
 			clear
