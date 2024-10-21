@@ -1,67 +1,80 @@
 #!/bin/bash
-#===============================================
-# Name: Jhorone Lance M. Roxas
-# Date: Oct 15, 2024
-# TODO: To Create a delete Method for the
-# InventoryManagementSystem.
-#===============================================
-source ./res/my_funcs
-products=./res/IPSdataset.txt
+#==========================================================
+# Author        : Roxas, JHorone Lance M.
+# File Name     : delete_product.sh
+# Purpose       : Allow the user to search and delete a 
+#                 specific product from the inventory.
+#==========================================================
 
+DATA_FILE=./res/IPSdataset.txt  # Path to the dataset file
 
-    # Prompt the user for the product name to delete
-    read -p "$(center_text 'Enter the Name of the Product to Delete: ')" product_name
+source ./res/my_funcs  # Load external functions (e.g., center_text)
+clear
+echo -e "\n\n\n\n\n"
 
-    # Search for the product in the file
-    record=$(grep -i "$product_name" "$products")
+# Check if the data file exists
+if [ ! -f "$DATA_FILE" ]; then
+    center_text "Data file not found!"
+    exit 1
+fi
 
-    if [ -z "$record" ]; then
-        center_text "No record found for $product_name."
+# Prompt user for a search term to find products to delete
+read -p "$(center_text 'Enter search term (Product ID, Name, Category, Supplier): ')" search_term
 
+# Search for matching products using grep (case-insensitive)
+results=$(grep -i "$search_term" "$DATA_FILE")
+
+if [ -z "$results" ]; then
+    center_text "No matching products found."
+    exit 0
+else
+    center_text "========================================================="
+    center_text "Matching Products:"
+    center_text "========================================================="
+    
+    # Display matching products with numbering for selection
+    echo "$results" | nl -w2 -s'. ' | while IFS=':' read -r num product_id name category supplier price quantity sales; do
+        center_text "[$num]    Product ID    : $product_id"
+        center_text "                 Name          : $name"
+        center_text "                 Category      : $category"
+        center_text "                 Supplier      : $supplier"
+        center_text "                 Price         : $price"
+        center_text "                 Quantity      : $quantity"
+        center_text "                 Sales         : $sales"
+        center_text "-----------------------------------------------------"
+    done
+
+    # Ask the user to select a product to delete by entering its number
+    read -p "$(center_text 'Enter the product number to delete: ')" choice
+
+    # Extract the selected product
+    selected=$(echo "$results" | sed -n "${choice}p")
+
+    if [ -z "$selected" ]; then
+        center_text "Invalid selection. No product deleted."
+        exit 0
     fi
-
-    # Extract fields from the record
-    product_id=$(echo "$record" | cut -d':' -f1)
-    product_name=$(echo "$record" | cut -d':' -f2)
-    product_category=$(echo "$record" | cut -d':' -f3)
-    product_supplier=$(echo "$record" | cut -d':' -f4)
-    product_price=$(echo "$record" | cut -d':' -f5)
-    product_quantity=$(echo "$record" | cut -d':' -f6)
-    product_sales=$(echo "$sales" | cut -d':' -f7)
-
-    # Display formatted output
-    center_text  "========================================== <Y/>"
-    center_text  "Product ID:         $product_id"
-    center_text  "Product Name:       $product_name"
-    center_text  "Category:           $product_category"
-    center_text  "Supplier:           $product_supplier"
-    center_text  "Price:              $product_price"
-    center_text  "Quantity:           $product_quantity"
-    center_text  "Sales:              $product_sales"
-    center_text  "=========================================="
-    product_sales=$(echo "$record" | cut -d':' -f7)
-
-    # Display formatted output
-    center_text "========================================== <Y/>"
-    center_text "Product ID:         $product_id"
-    center_text "Product Name:       $product_name"
-    center_text "Category:           $product_category"
-    center_text "Supplier:           $product_supplier"
-    center_text "Price:              $product_price"
-    center_text "Quantity:           $product_quantity"
-    center_text "Sales:              $product_sales "
-    center_text "=========================================="
 
     # Confirm deletion
-    read -p "$(center_text 'Do you want to delete this product? <Y/N>: ')" proceed
+    center_text "----------------------------------------"
+    center_text "You selected:"
+    IFS=':' read -r product_id name category supplier price quantity sales <<< "$selected"
+    center_text "Product ID  : $product_id"
+    center_text "Name        : $name"
+    center_text "Category    : $category"
+    center_text "Supplier    : $supplier"
+    center_text "Price       : $price"
+    center_text "Quantity    : $quantity"
+    center_text "Sales       : $sales"
+    center_text "----------------------------------------"
 
-    # Proceed with deletion if confirmed
-    if [[ "$proceed" == "Y" || "$proceed" == "y" ]]; then
-        # Delete the record by filtering out the product from the file
-        grep -v "$product_name" "$products" > temp && mv temp "$products"
-        center_text "Product deleted successfully."
+    read -p "$(center_text 'Do you really want to delete this product? <Y/N>: ')" confirm
+
+    if [[ "$confirm" =~ ^[Yy]$ ]]; then
+        # Delete the product from the data file using sed
+        sed -i "/^$product_id:/d" "$DATA_FILE"
+        center_text "Product '$name' has been successfully deleted."
     else
-        center_text "Product deletion canceled."
+        center_text "Deletion canceled."
     fi
-
-
+fi
