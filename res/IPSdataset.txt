@@ -16,7 +16,7 @@ DE3001R:Alaska Powdered Milk:Dairy & Eggs:Alaska:70:160:78
 BV6002Q:Tang Pineapple Juice:Beverages:Tang:35:200:32
 CG1004J:Argentina Corned Beef:Canned Goods:Argentina:95:80:12
 BV3005K:Coca-Cola 1L:Beverages:Coca-Cola:45:300:46
-CC1007C:Rebisco Crackers:Chips & Crackers:Rebisco:28:140:
+CC1007C:Rebisco Crackers:Chips & Crackers:Rebisco:28:140:20
 IN6003O:Lucky Me Instant Noodles:Instant Noodles:Lucky Me:10:320:30
 CG2002P:Century Tuna Flakes:Canned Goods:Century Tuna:60:210:10
 DE5001W:Dutch Mill Yogurt Drink:Dairy & Eggs:Dutch Mill:25:100:45
