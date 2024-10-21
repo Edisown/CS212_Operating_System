@@ -1,11 +1,14 @@
 #!bin/bash
 #==================================================
-# Script Name:          prod_quant_per_stat
+# Script Name:          top_selling_products
 # By:                   Xymond Louisse M. Alcazar
 # Group Name:           Team Lemar
 # Purpose:              a script that displays
-#                       product quantity by its
-#                     	product status.
-#Command Line:          prod_quant_per_stat
+#                       top selling products based
+#			on sales.
 #==================================================
 products=~/res/IPSdataset.txt
+
+IFS=':' read -r PID pName pCategory pSupplier price count sales <<< "$products"
+
+
