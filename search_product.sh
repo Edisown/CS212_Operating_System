@@ -31,7 +31,7 @@ if [ -z "$results" ]; then
     center_text "No matching products found."
 else
     center_text "==========================================="
-    center_text "          Matching products:"
+    center_text "             Matching Products             "
     center_text "==========================================="
     echo "$results" | while IFS=':' read -r product_id name category supplier price quantity sales allotment; do
         center_text "Product ID    : $product_id"
