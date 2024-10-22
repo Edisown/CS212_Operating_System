@@ -39,7 +39,7 @@ do
 	[Dd][Pp][Cc])
 		bash ./disp_prod_by_cat;;
 	[Dd][Pp][Ss])
-		bash ./disp_prod_by_status;;
+		bash ./display_prod_by_status;;
 	*)
 		center_text "-- Invalid Entry, Try again --"
 		continue;;

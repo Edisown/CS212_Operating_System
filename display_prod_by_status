@@ -12,13 +12,51 @@ products=./res/IPSdataset.txt
 # Script for center_text function
 source ./res/my_funcs
 
+#function to process the status of each product
+process_status() {
+
+	while IFS=':' read -r PID pName pCategory pSupplier price count sales pThreshold
+	do
+
+		low_stock=$(echo "$pThreshold * 0.2" | bc)
+		#to check if the product is low stock or not
+		if (( $(echo "$count < $low_stock" | bc -l) ))
+		then
+			pStatus="Low Stock"
+		else
+			pStatus="Available"
+		fi
+		echo "$PID:$pName:$pCategory:$pSupplier:$price:$count:$sales:$pThreshold:$pStatus" >> ./res/temp_file
+	done < "$products"
+
+	#overwrite IPS_with_stat with the contents of the temp_file
+	cat ./res/temp_file > ./res/IPS_with_stat.txt
+
+	#remove temp_file
+	rm ./res/temp_file
+}
+
 # Function to display products by status
 status() {
+	process_status
+
         local status_input="$1"
         local increment=8
-        local status_match=$(grep -i ":$status_input" "$products")
+	local status_to_check
 
-        clear
+	IFS':' read -r PID pName pCategory pSupplier price count sales pThreshold pStatus <<< ./res/IPS_with_stat.txt
+
+	if [[ "$status_input" =~ ^[Aa][Ss]$ ]]
+	then
+		status_to_check="Available"
+	elif [[ "$status_input" =~ ^[Ll][Ss]$ ]]
+	then
+		status_to_check="Low"
+	fi
+
+	status_match=$(grep -i ":$status_to_check" "$pStatus")
+
+	clear
         if [[ -z "$status_input" ]]; then
                 echo -e "\n\n\n\n\n"
                 center_text "No Entry. Please enter a valid status."
@@ -32,14 +70,13 @@ status() {
                 center_text "Press [ENTER] to continue."
                 read
         else
-                tput cup 5 10; printf "%-10s %-35s %-20s %-25s %10s %10s %10s %10s\n" \
-                        "PID" "Product" "Category" "Supplier" "Price" "Quantity" "Sales" "Status"
+                tput cup 5 10; printf "%-10s %-35s %-20s %-25s %10s %10s %10s %15s %10s\n" \
+                        "PID" "Product" "Category" "Supplier" "Price" "Quantity" "Sales" "Threshold" "Status"
                 tput cup 6 10; echo -e "===================================================================================================================================="
-                
-                echo "$status_match" | while IFS=':' read -r PID pName pCategory pSupplier price count sales pStatus; do
+                echo "$status_match" | while IFS=':' read -r PID pName pCategory pSupplier price count sales pThreshold pStatus; do
                         tput cup "$increment" 10
-                        printf "%-10s %-35s %-20s %-25s %10s %10s %10s %10s\n" \
-                                "$PID" "$pName" "$pCategory" "$pSupplier" "$price" "$count" "$sales" "$pStatus"
+                        printf "%-10s %-35s %-20s %-25s %10s %10s %10s %15s %10s\n" \
+                                "$PID" "$pName" "$pCategory" "$pSupplier" "$price" "$count" "$sales" "$pThreshold"
                         ((increment++))
                 done
 
@@ -53,7 +90,19 @@ status() {
 while true; do
         clear
         echo -e "\n\n\n\n\n"
-        center_text "Please Enter the Status of the products (e.g., Available, Out of Stock):"
-        read status_input
-        status "$status_input"
+	center_text "Product Status"
+	center_text "=============="
+        center_text "Please Select a Function:"
+	echo ""
+	center_text "[AP] - Available Products"
+	center_text "[LS] - Low Stock Products"
+	center_text "[Q] - Quit"
+	echo ""
+        read -p "$(center_text '>> ')" status_input
+
+	if [[ "$status_input" =~ ^[Qq]$ ]]
+	then
+		clear;exit
+	fi
+	status "$status_input"
 done
