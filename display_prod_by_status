@@ -52,8 +52,7 @@ while true
 do
         clear
         echo -e "\n\n\n\n\n"
-        center_text "Please Enter the Status of the products (e.g., Available, Out of Stock):"
-        read status_input
+        read -p "$(center_text 'Please Enter the Status of the products (e.g., Available, Out of Stock):')" staus_input
         status "$status_input"
 done
  
