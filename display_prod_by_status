@@ -1,58 +1,59 @@
-#!bin/bash
+#!/bin/bash
 #==================================================
 # Script Name   :       disp_prod_by_status
 # By            :       Roxas, Jhorone Lance M.
 # Group Name    :       Team Lemar
-# Purpose       :       a script that displays
-#                       products by its status.
+# Purpose       :       A script that displays
+#                       products by their status.
 # Command Line  :       disp_prod_by_status
 #==================================================
 products=./res/IPSdataset.txt
 
-# script for center_text
+# Script for center_text function
 source ./res/my_funcs
 
+# Function to display products by status
 status() {
         local status_input="$1"
-        increment=8
-        status_match=$(grep -i ":$status_input" "$products")
+        local increment=8
+        local status_match=$(grep -i ":$status_input" "$products")
 
         clear
-        if [[ -z "$status_input" ]]
-        then
+        if [[ -z "$status_input" ]]; then
                 echo -e "\n\n\n\n\n"
-                center_text "No Entry, Please Enter the corresponding status."
+                center_text "No Entry. Please enter a valid status."
                 echo -e "\n\n\n"
-                center_text "Press [ENTER] to continue"
+                center_text "Press [ENTER] to continue."
                 read
-        elif [[ -z "$status_match" ]]
-        then
+        elif [[ -z "$status_match" ]]; then
                 echo -e "\n\n\n\n\n"
                 center_text "No matching products."
                 echo -e "\n\n\n"
-                center_text "Press [ENTER] to continue"
+                center_text "Press [ENTER] to continue."
                 read
         else
-                tput cup 5 10;printf "%-10s %-35s %-20s %-25s %10s %10s %10s %10s\n" "PID" "Product" "Category" "Supplier" "Price" "Quantity" "Sales" "Status"
-                tput cup 6 10;echo -e "===================================================================================================================================="
-
-                echo "$status_match" | while IFS=':' read -r PID pName pCategory pSupplier price count sales pStatus
-                do
-                        tput cup "$increment" 10;printf "%-10s %-35s %-20s %-25s %10s %10s %10s %10s\n" "$PID" "$pName" "$pCategory" "$pSupplier" "$price" "$count" "$sales" "$pStatus"
-
+                tput cup 5 10; printf "%-10s %-35s %-20s %-25s %10s %10s %10s %10s\n" \
+                        "PID" "Product" "Category" "Supplier" "Price" "Quantity" "Sales" "Status"
+                tput cup 6 10; echo -e "===================================================================================================================================="
+                
+                echo "$status_match" | while IFS=':' read -r PID pName pCategory pSupplier price count sales pStatus; do
+                        tput cup "$increment" 10
+                        printf "%-10s %-35s %-20s %-25s %10s %10s %10s %10s\n" \
+                                "$PID" "$pName" "$pCategory" "$pSupplier" "$price" "$count" "$sales" "$pStatus"
                         ((increment++))
                 done
+
                 echo -e "\n\n"
-                center_text "Press [ENTER] to return"
-                read;clear;continue
+                center_text "Press [ENTER] to return."
+                read
         fi
 }
 
-while true
-do
+# Main loop for user input
+while true; do
         clear
         echo -e "\n\n\n\n\n"
-        read -p "$(center_text 'Please Enter the Status of the products (e.g., Available, Out of Stock):')" staus_input
+        center_text "Please Enter the Status of the products (e.g., Available, Out of Stock):"
+        read status_input
         status "$status_input"
 done
- 
