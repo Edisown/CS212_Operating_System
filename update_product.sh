@@ -62,11 +62,10 @@ else
   new_sales=$product_sales
 fi
 
-# Update the quantity and sales in the file using sed
-# Update the 6th field (product quantity)
-sed -i "s|\(^$product_id:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:\)[^:]*:\([^:]*:\).*|\1$new_quantity:\2|" "$products"
+# Update the 6th field (quantity) in the file using sed
+sed -i "s|\(^$product_id:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:\)[^:]*|\1$new_quantity|" "$products"
 
-# Update the 7th field (sales)
+# Update the 7th field (sales) in the file using sed
 sed -i "s|\(^$product_id:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:\)[^:]*|\1$new_sales|" "$products"
 
 # Display updated product details
