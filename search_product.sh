@@ -19,7 +19,7 @@ if [ ! -f "$DATA_FILE" ]; then
 fi
 
 # Prompt user for search input
-read -p "$(center_text 'Enter search term (Product ID/Product Name): ')" search_term
+read -p "$(center_text 'Enter search term (Product ID/Product Name/Category/Supplier): ')" search_term
 
 # Search and display matching products
 center_text "Searching for '$search_term'..."
