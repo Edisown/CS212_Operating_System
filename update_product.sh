@@ -69,13 +69,18 @@ sed -i "s|^\($product_id:[^:]*:[^:]*:[^:]*:[^:]*:\)[^:]*|\1$new_quantity|" "$pro
 # Update the 7th field (sales)
 sed -i "s|^\($product_id:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:\)[^:]*|\1$new_sales|" "$products"
 
+# Refresh the updated product details from the file
+updated_record=$(grep "^$product_id:" "$products")
+updated_product_quantity=$(echo "$updated_record" | cut -d':' -f6)
+updated_product_sales=$(echo "$updated_record" | cut -d':' -f7)
+
 # Display updated product details
 center_text "==================================================================="
 center_text "                      New Update of The Product                    "
 center_text "==================================================================="
 center_text "Product ID:      $product_id"
 center_text "Product Name:    $product_name"
-center_text "Quantity:        $new_quantity"
-center_text "Sales:           $new_sales"
+center_text "Quantity:        $updated_product_quantity"
+center_text "Sales:           $updated_product_sales"
 center_text "Allotment:       $allotment_for_product"
 center_text "==================================================================="
