@@ -40,21 +40,24 @@ done < "$prods"  # Correctly reading from the dataset file
 
 # Clear screen and display the results
 clear
-center_text "Product Stock Status"
-echo "=================================================="
-printf "%-30s%-30s%-30s%-30s\n" "Product ID" "Product Name" "Category" "Quantity"
-
+center_text_center_align "=================================================="
+center_text_center_align "Product Stock Status"
+center_text_center_align "=================================================="
+echo -e "\n"
 if [[ "$option" =~ [Ll]ow ]]; then
-    center_text "Low Stock Products"
-    echo "=================================================="
+    center_text_center_align "Low Stock Products"
+    center_text_center_align "=================================================="
+    printf "%-30s%-35s%-30s%-30s\n" "Product ID" "Name" "Category" "Quantity"
     while IFS=":" read -r pid name categ supp price quan sale; do
-        printf "%-30s%-30s%-30s%-30s\n" "$pid" "$name" "$categ" "$quan"
+        printf "%-30s%-35s%-30s%-30s\n" "$pid" "$name" "$categ" "$quan"
     done < "$low"
 else
-    center_text "Available Products"
-    echo "=================================================="
+    center_text_center_align "Available Products"
+    center_text_center_align "=================================================="
+    printf "%-30s%-35s%-30s%-30s\n" "Product ID" "Name" "Category" "Quantity"
+    printf "%-30s%-35s%-30s%-30s\n" "============" "============" "============" "============"
     while IFS=":" read -r pid name categ supp price quan sale; do
-        printf "%-30s%-30s%-30s%-30s\n" "$pid" "$name" "$categ" "$quan"
+        printf "%-30s%-35s%-30s%-30s\n" "$pid" "$name" "$categ" "$quan"
     done < "$avail"
 fi
 

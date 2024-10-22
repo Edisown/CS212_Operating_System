@@ -6,3 +6,11 @@ center_text() {
   local spaces=$((  width/ 3 ))
   printf "%${spaces}s%s\n" "" "$text"
 }
+
+center_text_center_align() {
+	local text=$1
+	local width=$(tput cols)
+	local length=${#text}
+	local spaces=$(( (width - length) / 2 ))
+	printf "%${spaces}s%s\n" "" "$text"
+}
