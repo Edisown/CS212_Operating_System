@@ -1,0 +1,23 @@
+#!/bin/bash
+clear
+
+source ./res/my_funcs
+prods="./res/IPSdataset.txt"
+
+# Get the top five products by sales
+top_five=$(sort -t ':' -k7,7nr "$prods" | head -n 5)
+
+echo -e "\n\n\n\n\n"
+# Print header
+i=8
+tput cup 5 10; printf "%-30s%-30s%-30s\n" "===============" "===============" "==============="
+tput cup 6 10; printf "%-30s%-30s%-30s\n" "Product" "Category" "Units Sold"
+tput cup 7 10; printf "%-30s%-30s%-30s\n" "===============" "===============" "==============="
+# Read and print the top five products
+while IFS=":" read -r pid name categ supp price quan sales; do
+	tput cup "$i" 10; printf "%-30s%-30s%-30s\n" "$name" "$categ" "$sales"
+	((i++))
+done <<< "$top_five"
+echo -e "\n\n"
+read -p "$(center_text 'Press [ENTER] to continue...')" enter
+clear
