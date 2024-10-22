@@ -35,7 +35,7 @@ do
 	[Aa])
 		bash create_product;;
 	[Dd])
-		bash show_product.sh;;
+		bash disp_all_prod;;
 	[Mm])
 		bash update_product.sh;;
 	[Rr])
