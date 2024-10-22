@@ -5,89 +5,95 @@
 #====================================
 source ./res/my_funcs
 clear
+
 while true; do
-	echo -e "\n\n\n\n\n"
-	center_text "Add Product"
-	center_text "======================"
-	center_text "Product Properties"
-	read -p "$(center_text 'Product ID: ')" pid
-	read -p "$(center_text 'Product Name: ')" pname
-	read -p "$(center_text 'Supplier: ')" supplier
-	read -p "$(center_text 'Price: ')" price
-	read -p "$(center_text 'Initial Quantity: ')" quantity
+    echo -e "\n\n\n\n\n"
+    center_text "Add Product"
+    center_text "======================"
+    center_text "Product Properties"
 
-	if [[ "$price" =~ ^-?[0-9]+$ ]]; then
-		center_text "Enter a valid number..."
-		read -p "$(center_text 'Press [ENTER]' to continue...)" enter
-		continue
-	fi
+    read -p "$(center_text 'Product ID: ')" pid
+    read -p "$(center_text 'Product Name: ')" pname
+    read -p "$(center_text 'Supplier: ')" supplier
+    read -p "$(center_text 'Price: ')" price
+    read -p "$(center_text 'Initial Quantity: ')" quantity
 
-	if [[ "$quantity" =~ ^-?[0-9]+$ ]]; then
-		center_text "Enter a valid number..."
-		read -p "$(center_text 'Press [ENTER] to continue...')" enter
-		continue
-	fi
+    # Validate that price is a positive number
+    if ! [[ "$price" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+        center_text "Enter a valid number for price..."
+        read -p "$(center_text 'Press [ENTER] to continue...')" enter
+        continue
+    fi
 
-	echo -e "\n"
-	read -p "$(center_text 'Add Product? [Y/N]?: ')" choice
+    # Validate that quantity is a positive integer
+    if ! [[ "$quantity" =~ ^[0-9]+$ ]]; then
+        center_text "Enter a valid number for quantity..."
+        read -p "$(center_text 'Press [ENTER] to continue...')" enter
+        continue
+    fi
 
-	if [[ "$choice" == [Nn] ]]; then
-		center_text "Add product cancelled..."
-		read -p "$(center_text 'Press [ENTER] to continue...')" enter
-		clear
-		break
-	fi
+    echo -e "\n"
+    read -p "$(center_text 'Add Product? [Y/N]?: ')" choice
 
-	code=$(echo ${pid} |awk '{print	substr($0, 1, 2)}')
+    if [[ "$choice" == [Nn] ]]; then
+        center_text "Add product cancelled..."
+        read -p "$(center_text 'Press [ENTER] to continue...')" enter
+        clear
+        break
+    fi
 
-	category=""
-	case "$code" in
-		"CC") category="Chips & Crackers" ;;
-		"CN") category="Condiments" ;;
-		"PN") category="Pasta & Noodles" ;;
-		"DE") category="Dairy & Eggs" ;;
-		"FD") category="Frozen Desserts" ;;
-		"BV") category="Beverages" ;;
-		"BB") category"Bread & Bakery" ;;
-		"IN") category="Instant Noodles" ;;
-		"BC") category="Biscuits & Cookies" ;;
-		"CG") category="Canned Goods" ;;
-		"FM") category="Frozen Meats" ;;
-		"PS") category="Pet Supplies" ;;
-		*) category="Invalid" ;;
-	esac
-	if [[ "$category" == "Invalid" ]]; then
-		center_text "Product code not applicable..."
-		read -p "$(center_text 'Add again? [Y/N]: ')" option
-		if [[ "$option" == [Yy] ]]; then
-			continue
-		else
-			center_text "Add product cancelled..."
-		
-			break
-		fi
-	else
-		center_text "Adding product..."
-		center_text "==============================="
-		center_text "Product ID: $pid "
-		center_text "Product Name: $pname"
-		center_text "Category: $category"
-		center_text "Supplier: $supplier"
-		center_text "Price: $price"
-		center_text "Quantity: $quantity"
-		echo -e "\n"
-		echo "$pid:$pname:$category:$supplier:$price:$quantity:0" >> ./res/IPSdataset.txt
+    # Extract the product code prefix (first 2 characters)
+    code=$(echo ${pid} | awk '{print substr($0, 1, 2)}')
 
-		read -p "$(center_text 'Add more? [Y/N]: ')" option
-		if [[ "$option" == [Yy] ]]; then
-			clear
-			continue
-		else
-			center_text "Add product cancelled..."
-			read -p "$(center_text 'Press [ENTER] to continue...')" enter
-			clear
-			break
-		fi
-	fi
+    category=""
+    case "$code" in
+        "CC") category="Chips & Crackers" ;;
+        "CN") category="Condiments" ;;
+        "PN") category="Pasta & Noodles" ;;
+        "DE") category="Dairy & Eggs" ;;
+        "FD") category="Frozen Desserts" ;;
+        "BV") category="Beverages" ;;
+        "BB") category="Bread & Bakery" ;;  # Fixed missing '='
+        "IN") category="Instant Noodles" ;;
+        "BC") category="Biscuits & Cookies" ;;
+        "CG") category="Canned Goods" ;;
+        "FM") category="Frozen Meats" ;;
+        "PS") category="Pet Supplies" ;;
+        *) category="Invalid" ;;
+    esac
+
+    if [[ "$category" == "Invalid" ]]; then
+        center_text "Product code not applicable..."
+        read -p "$(center_text 'Add again? [Y/N]: ')" option
+        if [[ "$option" == [Yy] ]]; then
+            continue
+        else
+            center_text "Add product cancelled..."
+            break
+        fi
+    else
+        center_text "Adding product..."
+        center_text "==============================="
+        center_text "Product ID: $pid"
+        center_text "Product Name: $pname"
+        center_text "Category: $category"
+        center_text "Supplier: $supplier"
+        center_text "Price: $price"
+        center_text "Quantity: $quantity"
+        echo -e "\n"
+
+        # Append the new product to the dataset file
+        echo "$pid:$pname:$category:$supplier:$price:$quantity:0" >> ./res/IPSdataset.txt
+
+        read -p "$(center_text 'Add more? [Y/N]: ')" option
+        if [[ "$option" == [Yy] ]]; then
+            clear
+            continue
+        else
+            center_text "Add product cancelled..."
+            read -p "$(center_text 'Press [ENTER] to continue...')" enter
+            clear
+            break
+        fi
+    fi
 done
-
