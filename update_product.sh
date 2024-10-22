@@ -7,7 +7,7 @@
 #Command Line:		update_product.sh
 #==================================================
 source ./my_funcs
-products=~/res/products.txt
+products=~/res/IPSdataset.txt
 
 update_product(){
    read -p "$(center_text 'Enter the  of the Product: ')" product_id
