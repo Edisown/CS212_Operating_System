@@ -15,14 +15,31 @@ while true; do
 	read -p "$(center_text 'Supplier: ')" supplier
 	read -p "$(center_text 'Price: ')" price
 	read -p "$(center_text 'Initial Quantity: ')" quantity
+
+	if [[ "$price" =~ ^-?[0-9]+$ ]]; then
+		center_text "Enter a valid number..."
+		read -p "$(center_text 'Press [ENTER]' to continue...)" enter
+		continue
+	fi
+
+	if [[ "$quantity" =~ ^-?[0-9]+$ ]]; then
+		center_text "Enter a valid number..."
+		read -p "$(center_text 'Press [ENTER] to continue...')" enter
+		continue
+	fi
+
 	echo -e "\n"
 	read -p "$(center_text 'Add Product? [Y/N]?: ')" choice
 
 	if [[ "$choice" == [Nn] ]]; then
+		center_text "Add product cancelled..."
+		read -p "$(center_text 'Press [ENTER] to continue...')" enter
+		clear
 		break
 	fi
 
 	code=$(echo ${pid} |awk '{print	substr($0, 1, 2)}')
+
 	category=""
 	case "$code" in
 		"CC") category="Chips & Crackers" ;;
@@ -45,6 +62,8 @@ while true; do
 		if [[ "$option" == [Yy] ]]; then
 			continue
 		else
+			center_text "Add product cancelled..."
+		
 			break
 		fi
 	else
@@ -64,6 +83,9 @@ while true; do
 			clear
 			continue
 		else
+			center_text "Add product cancelled..."
+			read -p "$(center_text 'Press [ENTER] to continue...')" enter
+			clear
 			break
 		fi
 	fi
