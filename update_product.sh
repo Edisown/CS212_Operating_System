@@ -45,8 +45,17 @@ center_text "===================================================================
 
 # Ask if the user wants to update the product quantity
 read -p "$(center_text 'Do you want to edit the quantity of the product? (Y/N): ')" proceed
+
+# Check if the input is N or n to exit
+if [[ "$proceed" =~ ^[Nn]$ ]]; then
+  center_text "Exiting the program. No changes made."
+  exit 0
+fi
+
+# Check if the input is not Y or y
 if [[ ! "$proceed" =~ ^[Yy]$ ]]; then
-  return
+  center_text "Invalid input. Please enter Y or N."
+  exit 1
 fi
 
 # Input the new quantity of the product
