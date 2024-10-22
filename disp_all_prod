@@ -1,0 +1,28 @@
+#!bin/bash
+#================================================
+# Script Name	:	disp_all_prod
+# By		:	Xymond Louisse M. Alcazar
+# Group		:	Team Lemar
+# Purpose	:	displays all the product
+#			read from the file.
+#================================================
+products=./res/IPSdataset.txt
+
+#for center alignment
+source ./res/my_funcs
+
+#tput cup horizontal placement
+increment=7
+
+clear
+tput cup 5 10;printf "%-10s %-35s %-20s %-20s %10s %10s %10s %15s\n" "PID" "Product" "Category" "Supplier" "Price" "Quantity" "Sales" "Threshold"
+tput cup 6 10;echo -e "========================================================================================================================================="
+while IFS=':' read -r PID pName pCategory pSupplier price count sales pThreshold
+do
+	tput cup "$increment" 10;printf "%-10s %-35s %-20s %-20s %10s %10s %10s %15s\n" "$PID" "$pName" "$pCategory" "$pSupplier" "$price" "$count" "$sales" "$pThreshold" 
+	((increment++))
+done < "$products"
+echo -e "\n\n"
+center_text "Press [ENTER] to return"
+read;clear;continue
+
