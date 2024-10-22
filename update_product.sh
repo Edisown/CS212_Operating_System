@@ -29,7 +29,6 @@ product_supplier=$(echo "$record" | cut -d':' -f4)
 product_price=$(echo "$record" | cut -d':' -f5)
 product_quantity=$(echo "$record" | cut -d':' -f6)
 product_sales=$(echo "$record" | cut -d':' -f7)
-allotment_for_product=$(echo "$record" | cut -d':' -f8)
 
 # Display current product details
 center_text "==================================================================="
@@ -40,7 +39,6 @@ center_text "Supplier:        $product_supplier"
 center_text "Price:           $product_price"
 center_text "Quantity:        $product_quantity"
 center_text "Sales:           $product_sales"
-center_text "Allotment:       $allotment_for_product"
 center_text "==================================================================="
 
 # Ask if the user wants to update the product quantity
