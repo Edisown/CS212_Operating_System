@@ -1,40 +1,56 @@
+#!/bin/bash
+#==================================================
+# Script Name   :       check_stock_status
+# Purpose       :       Displays products based on stock status (Available or Low).
+#==================================================
 prods="./res/IPSdataset.txt"
 source ./res/my_funcs
 
-center_text "Check [Available] or [Low] Stock  products: " option
+# Ask user for the option (Available or Low stock)
+echo -e "\n\n\n\n\n"
+read -p "$(center_text 'Check [Available] or [Low] Stock products: ')" option
 
-while IFS=":" read -r pid name categ supp price quan sales max; then
-	twenty_percent=$((max / 5))
+# Initialize temporary files
+low="low_stock_temp.txt"
+avail="avail_stock_temp.txt"
 
-	if [[ "$quantity" <= "$twenty_percent" ]]; then
-		status="low"
-	else
-		status="avail"
-	fi
+# Ensure temp files are empty
+> "$low"
+> "$avail"
 
-	if [[ "$status" == "low" ]]; then
-		echo "$pid:$name:$categ:$supp:$price:$quan:sales" >> low
-	else
-		echo "$pid:$name:$categ:$supp:$price:$quan:sale" >> avail
-	fi
-done <<< "$prods"
+# Read the dataset line by line
+while IFS=":" read -r pid name categ supp price quan sales max; do
+    # Calculate 20% of the max threshold
+    twenty_percent=$((max / 5))
 
+    # Determine the status of the product
+    if (( quan <= twenty_percent )); then
+        status="low"
+    else
+        status="avail"
+    fi
+
+    # Append to appropriate file based on the status
+    if [[ "$status" == "low" ]]; then
+        echo "$pid:$name:$categ:$supp:$price:$quan:$sales" >> "$low"
+    else
+        echo "$pid:$name:$categ:$supp:$price:$quan:$sales" >> "$avail"
+    fi
+done < "$prods"  # Correctly reading from the dataset file
+
+# Clear screen and display the results
 clear
-printf "%-30s%-30s%-30s%-30s" "Product ID" "Product Name" "Category" "Quantity"
-if [[ "$option" == "Low" ]];
-	while IFS=":" read -r pid name categ supp price quan sale; then
-		center_text "Low Stock Products"
-		center_text "================================="
-		printf "%-30s%-30s%-30s%-30s" "$pid" "$name" "$categ" "$quan"
-	done <<< "$low"
-else
-	while IFS=":" read -r pid name categ supp price quan sale; then
-		center_text "Available Products"
-		center_text "================================="
-		printf "%-30s%-30s%-30s%-30s" "$pid" "$name" "$categ" "$quan"
-	done <<< "$avail"
-fi
+center_text "Product Stock Status"
+echo "=================================================="
+printf "%-30s%-30s%-30s%-30s\n" "Product ID" "Product Name" "Category" "Quantity"
 
-rm low
-rm avail
-	
+if [[ "$option" =~ [Ll]ow ]]; then
+    center_text "Low Stock Products"
+    echo "=================================================="
+    while IFS=":" read -r pid name categ supp price quan sale; do
+        printf "%-30s%-30s%-30s%-30s\n" "$pid" "$name" "$categ" "$quan"
+    done < "$low"
+else
+    center_text "Available Products"
+    echo "=================================================="
+    while IFS=":" read -r
