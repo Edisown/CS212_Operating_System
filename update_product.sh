@@ -18,7 +18,7 @@ record=$(grep "^$product_id:" "$products")
 # Check if the record exists
 if [ -z "$record" ]; then
   center_text "No record found for the Product ID: $product_id."
-  exit 1
+  return
 fi
 
 # Extract fields from the record
@@ -45,17 +45,8 @@ center_text "===================================================================
 
 # Ask if the user wants to update the product quantity
 read -p "$(center_text 'Do you want to edit the quantity of the product? (Y/N): ')" proceed
-
-# Check if the input is N or n to exit
-if [[ "$proceed" =~ ^[Nn]$ ]]; then
-  center_text "Exiting the program. No changes made."
-  exit 0
-fi
-
-# Check if the input is not Y or y
 if [[ ! "$proceed" =~ ^[Yy]$ ]]; then
-  center_text "Invalid input. Please enter Y or N."
-  exit 1
+  return
 fi
 
 # Input the new quantity of the product
@@ -72,11 +63,16 @@ else
 fi
 
 # Update the quantity and sales in the file using sed
-# This sed command updates the 6th field (quantity)
-sed -i "s|\(^$product_id:[^:]*:[^:]*:[^:]*:[^:]*:\)[^:]*:\([^:]*:\).*|\1$new_quantity:\2|" "$products"
+# Update the 6th field (quantity)
+sed -i "s|^\($product_id:[^:]*:[^:]*:[^:]*:[^:]*:\)[^:]*|\1$new_quantity|" "$products"
 
-# This sed command updates the 7th field (sales)
-sed -i "s|\(^$product_id:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:\)[^:]*|\1$new_sales|" "$products"
+# Update the 7th field (sales)
+sed -i "s|^\($product_id:[^:]*:[^:]*:[^:]*:[^:]*:[^:]*:\)[^:]*|\1$new_sales|" "$products"
+
+# Refresh the updated product details from the file
+updated_record=$(grep "^$product_id:" "$products")
+updated_product_quantity=$(echo "$updated_record" | cut -d':' -f6)
+updated_product_sales=$(echo "$updated_record" | cut -d':' -f7)
 
 # Display updated product details
 center_text "==================================================================="
@@ -84,7 +80,7 @@ center_text "                      New Update of The Product                    
 center_text "==================================================================="
 center_text "Product ID:      $product_id"
 center_text "Product Name:    $product_name"
-center_text "Quantity:        $new_quantity"
-center_text "Sales:           $new_sales"
+center_text "Quantity:        $updated_product_quantity"
+center_text "Sales:           $updated_product_sales"
 center_text "Allotment:       $allotment_for_product"
 center_text "==================================================================="
