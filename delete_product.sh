@@ -1,6 +1,6 @@
 #!/bin/bash
 #==========================================================
-# Author        : Espartinas, Carl Angelo B.
+# Author        : Roxas, Jhorone Lance M.
 # File Name     : delete_product.sh
 # Purpose       : Allow the user to search and delete a 
 #                 specific product from the inventory.
