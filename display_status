@@ -53,4 +53,10 @@ if [[ "$option" =~ [Ll]ow ]]; then
 else
     center_text "Available Products"
     echo "=================================================="
-    while IFS=":" read -r
+    while IFS=":" read -r pid name categ supp price quan sale; do
+        printf "%-30s%-30s%-30s%-30s\n" "$pid" "$name" "$categ" "$quan"
+    done < "$avail"
+fi
+
+# Clean up temporary files
+rm "$low" "$avail"
