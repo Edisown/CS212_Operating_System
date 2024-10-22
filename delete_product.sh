@@ -19,7 +19,7 @@ if [ ! -f "$DATA_FILE" ]; then
 fi
 
 # Prompt user for a search term to find products to delete
-read -p "$(center_text 'Enter search term (Product ID, Name, Category, Supplier): ')" search_term
+read -p "$(center_text 'Enter search term (Product ID, Name, Category, Supplier, etc.): ')" search_term
 
 # Search for matching products using grep (case-insensitive)
 results=$(grep -i "$search_term" "$DATA_FILE")
@@ -28,20 +28,25 @@ if [ -z "$results" ]; then
     center_text "No matching products found."
     exit 0
 else
-    center_text "========================================================"
-    center_text "               Matching Products:                       "
-    center_text "========================================================"
+    center_text "===================================================================="
+    center_text "                         Matching Products:                         "
+    center_text "===================================================================="
     
     # Display matching products with numbering for selection
-    echo "$results" | nl -w2 -s'. ' | while IFS=':' read -r num product_id name category supplier price quantity sales; do
-        center_text "[$num] Product ID    : $product_id"
-        center_text "              Name          : $name"
-        center_text "              Category      : $category"
-        center_text "              Supplier      : $supplier"
-        center_text "              Price         : $price"
-        center_text "              Quantity      : $quantity"
-        center_text "              Sales         : $sales"
-        center_text "----------------------------------------------------"
+    echo "$results" | nl -w2 -s'. ' | while read -r num line; do
+        # Split the line into variables using ':' as the delimiter
+        IFS=':' read -r product_id name category supplier price quantity sales <<< "$line"
+        center_text "[$num] "
+        center_text "                    Product ID    : $product_id"
+        center_text "                    Name          : $name"
+        center_text "                    Category      : $category"
+        center_text "                    Supplier      : $supplier"
+        center_text "                    Price         : $price"
+        center_text "                    Quantity      : $quantity"
+        center_text "                    Sales         : $sales"
+        center_text "     Maximum Threshhold capacity  : $maximum_Threshhold_capacity"
+        center_text "                    Status        : $Status"
+        center_text "----------------------------------------------------------------"
     done
 
     # Loop until a valid product number or 'Q/q' is entered
@@ -72,17 +77,19 @@ else
      done
 
     # Confirm deletion
-    center_text "---------------------------------------------------------"
+    center_text "------------------------------------------------------------"
     center_text "You selected:"
     IFS=':' read -r product_id name category supplier price quantity sales <<< "$selected"
-    center_text "Product ID  : $product_id"
-    center_text "Name        : $name"
-    center_text "Category    : $category"
-    center_text "Supplier    : $supplier"
-    center_text "Price       : $price"
-    center_text "Quantity    : $quantity"
-    center_text "Sales       : $sales"
-    center_text "---------------------------------------------------------"
+    center_text "Product ID                   : $product_id"
+    center_text "Name                         : $name"
+    center_text "Category                     : $category"
+    center_text "Supplier                     : $supplier"
+    center_text "Price                        : $price"
+    center_text "Quantity                     : $quantity"
+    center_text "Sales                        : $sales"
+    center_text "Maximum Threshhold capacity  : $maximum_Threshhold_capacity"
+    center_text "Status                       : $Status" 
+    center_text "------------------------------------------------------------"
 
     read -p "$(center_text 'Do you really want to delete this product? <Y/N>: ')" confirm
 
