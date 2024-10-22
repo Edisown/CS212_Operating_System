@@ -44,10 +44,17 @@ else
         center_text "----------------------------------------------------"
     done
 
-    # Loop until a valid selection is made
-    while true;do
-        read -p "$(center_text 'Enter the product number to delete: ')" choice
-        
+    # Loop until a valid product number or 'Q/q' is entered
+    while true; do
+        read -p "$(center_text 'Enter the product number to delete (or press Q to quit): ')" choice
+
+
+       # Check if the user wants to quit
+       if [[ "$choice" =~ ^[Qq]$ ]]; then
+           center_text "Exiting deletion process. No products were deleted."
+           exit 0 
+        fi
+
        # Check if the input is blank or non-numeric
        if [[ -z "$choice" ||! "$choice" =~ ^[0-9]+$ ]]; then
            center_text "Invalid input. Please enter a valid product number."
