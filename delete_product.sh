@@ -35,7 +35,7 @@ else
     # Display matching products with numbering for selection
     echo "$results" | nl -w2 -s'. ' | while read -r num line; do
         # Split the line into variables using ':' as the delimiter
-        IFS=':' read -r product_id name category supplier price quantity sales <<< "$line"
+        IFS=':' read -r product_id name category supplier price quantity sales maximum_Threshhold_capacity Status <<< "$line"
         center_text "[$num] "
         center_text "                    Product ID    : $product_id"
         center_text "                    Name          : $name"
@@ -79,7 +79,7 @@ else
     # Confirm deletion
     center_text "------------------------------------------------------------"
     center_text "You selected:"
-    IFS=':' read -r product_id name category supplier price quantity sales <<< "$selected"
+    IFS=':' read -r product_id name category supplier price quantity sales maximum_Threshhold_capacity Status <<< "$selected"
     center_text "Product ID                   : $product_id"
     center_text "Name                         : $name"
     center_text "Category                     : $category"
