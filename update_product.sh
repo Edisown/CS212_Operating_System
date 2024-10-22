@@ -7,7 +7,7 @@
 # Command Line:		update_product.sh
 #==================================================
 source ./res/my_funcs
-products=~/res/IPSdataset.txt
+products=./res/IPSdataset.txt
 
 update_product() {
    # Prompt for the product ID
