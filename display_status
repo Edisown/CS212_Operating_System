@@ -1,0 +1,40 @@
+prods="./res/IPSdataset.txt"
+source ./res/my_funcs
+
+center_text "Check [Available] or [Low] Stock  products: " option
+
+while IFS=":" read -r pid name categ supp price quan sales max; then
+	twenty_percent=$((max / 5))
+
+	if [[ "$quantity" <= "$twenty_percent" ]]; then
+		status="low"
+	else
+		status="avail"
+	fi
+
+	if [[ "$status" == "low" ]]; then
+		echo "$pid:$name:$categ:$supp:$price:$quan:sales" >> low
+	else
+		echo "$pid:$name:$categ:$supp:$price:$quan:sale" >> avail
+	fi
+done <<< "$prods"
+
+clear
+printf "%-30s%-30s%-30s%-30s" "Product ID" "Product Name" "Category" "Quantity"
+if [[ "$option" == "Low" ]];
+	while IFS=":" read -r pid name categ supp price quan sale; then
+		center_text "Low Stock Products"
+		center_text "================================="
+		printf "%-30s%-30s%-30s%-30s" "$pid" "$name" "$categ" "$quan"
+	done <<< "$low"
+else
+	while IFS=":" read -r pid name categ supp price quan sale; then
+		center_text "Available Products"
+		center_text "================================="
+		printf "%-30s%-30s%-30s%-30s" "$pid" "$name" "$categ" "$quan"
+	done <<< "$avail"
+fi
+
+rm low
+rm avail
+	
