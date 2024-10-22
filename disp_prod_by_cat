@@ -14,7 +14,7 @@ source ./res/my_funcs
 
 category() {
 	local pid="$1"
-	increment=8
+	increment=7
 	pid_match=$(grep -i "^$pid" "$products")
 
 	clear
@@ -33,12 +33,12 @@ category() {
 		center_text "Press [ENTER] to continue"
 		read
 	else
-		tput cup 5 10;printf "%-10s %-35s %-20s %-25s %10s %10s %10s\n" "PID" "Product" "Category" "Supplier" "Price" "Quantity" "Sales"
-		tput cup 6 10;echo -e "=============================================================================================================================="
+		tput cup 5 10;printf "%-10s %-35s %-20s %-20s %10s %10s %10s %15s\n" "PID" "Product" "Category" "Supplier" "Price" "Quantity" "Sales" "Threshold"
+		tput cup 6 10;echo -e "========================================================================================================================================="
 
-		echo "$pid_match" | while IFS=':' read -r PID pName pCategory pSupplier price count sales
+		echo "$pid_match" | while IFS=':' read -r PID pName pCategory pSupplier price count sales pThreshold
 		do
-			tput cup "$increment" 10;printf "%-10s %-35s %-20s %-25s %10s %10s %10s\n" "$PID" "$pName" "$pCategory" "$pSupplier" "$price" "$count" "$sales"
+			tput cup "$increment" 10;printf "%-10s %-35s %-20s %-20s %10s %10s %10s %15s\n" "$PID" "$pName" "$pCategory" "$pSupplier" "$price" "$count" "$sales" "$pThreshold"
 
 			((increment++))
 		done
@@ -58,7 +58,7 @@ do
 	center_text "[CC] - Chips & Crackers	[BB] - Bread & Bakery"
         center_text "[CN] - Condiments		[IN] - Instant Noodles"
         center_text "[PN] - Pasta& Noodless	[BC] - Biscuits & Cookies"
-        center_text "[DE] - Dairy & Eggs	[CG] - Canned Goods"
+        center_text "[DE] - Dairy & Eggs		[CG] - Canned Goods"
         center_text "[FD] - Frozen Desserts	[FM] - Frozen Meat"
 	center_text "[BV] - Beverages		[PS] - Pet Supplies"
 	echo ""

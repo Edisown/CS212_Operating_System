@@ -17,11 +17,10 @@ do
 	echo -e "\n\n\n\n\n\n"
 	center_text "Product Properties"
 	center_text "=================="
-	center_text "[PC] - Product Count per Category"
-	center_text "[PS] - Product Count per Status"
-	center_text "[CP] - Display Product by Category"
-	center_text "[SP] - Display Product by Status"
-	center_text "[APC] - Average Product Count per Category"
+	center_text "[PCC] - Product Count per Category"
+	center_text "[TSP] - Top Selling Products"
+	center_text "[DPC] - Display Product by Category"
+	center_text "[DPS] - Display Product by Status"
 	echo ""
 	center_text "(Press [Q] to quit)"
 	echo ""
@@ -33,16 +32,14 @@ do
 	fi
 
 	case "$choice" in
-	[Pp][Cc])
+	[Pp][Cc][Cc])
 		bash ./prod_quant_per_cat;;
-	[Pp][Ss])
-		bash ./prod_quant_per_stat;;
-	[Cc][Pp])
+	[Tt][Ss][Pp])
+		bash ./top_selling_products;;
+	[Dd][Pp][Cc])
 		bash ./disp_prod_by_cat;;
-	[Ss][Pp])
-		bash ./disp_prod_by_stat;;
-	[Aa][Pp][Cc])
-		bash ./avg_prod_quant_per_cat;;
+	[Dd][Pp][Ss])
+		bash ./disp_prod_by_status;;
 	*)
 		center_text "-- Invalid Entry, Try again --"
 		continue;;
