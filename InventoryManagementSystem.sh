@@ -33,7 +33,7 @@ do
 
 	case "$choice" in
 	[Aa])
-		bash add_product.sh;;
+		bash create_product;;
 	[Dd])
 		bash show_product.sh;;
 	[Mm])

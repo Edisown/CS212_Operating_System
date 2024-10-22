@@ -148,3 +148,4 @@ CC1014M:Oishi Potato Fries:Chips & Crackers:Oishi:25:150:89:140
 BV9012J:RC Cola 1L:Beverages:RC Cola:35:210:14:300
 IN9003S:Samyang Spicy Noodles:Instant Noodles:Samyang:55:100:25:100
 CG9010F:Libby's Vienna Sausage:Canned Goods:Libby's:40:130:36:180
+FM1420X:Star Chicken Nuggets:Frozen Meats:Procter & Gamble:50:75:0
