@@ -3,90 +3,88 @@
 # Script Name   :       check_stock_status
 # Purpose       :       Displays products based on stock status (Available or Low).
 #==================================================
+
 prods="./res/IPSdataset.txt"
 source ./res/my_funcs
 
-while true; do
-clear
-# Ask user for the option (Available or Low stock)
-echo -e "\n\n\n\n\n"
-read -p "$(center_text 'Check [Available] or [Low] Stock products: ')" option
-
-# Initialize temporary files
+# Constants
 low="low_stock_temp.txt"
 avail="avail_stock_temp.txt"
 
-# Ensure temp files are empty
-> "$low"
-> "$avail"
+# Clear temporary files
+clear_temp_files() {
+    > "$low"
+    > "$avail"
+}
 
-# Read the dataset line by line
-while IFS=":" read -r pid name categ supp price quan sales max; do
-    # Calculate 20% of the max threshold
-    twenty_percent=$((max / 5))
+# Load products into respective files based on stock status
+load_products() {
+    while IFS=":" read -r pid name categ supp price quan sales max; do
+        twenty_percent=$((max / 5))
+        stock_status="avail"
+        if (( quan <= twenty_percent )); then
+            stock_status="low"
+        fi
+        
+        if [[ "$stock_status" == "low" ]]; then
+            echo "$pid:$name:$categ:$supp:$price:$quan:$sales" >> "$low"
+        else
+            echo "$pid:$name:$categ:$supp:$price:$quan:$sales" >> "$avail"
+        fi
+    done < "$prods"
+}
 
-    # Determine the status of the product
-    if (( quan <= twenty_percent )); then
-        status="low"
-    else
-        status="avail"
-    fi
-
-    # Append to appropriate file based on the status
-    if [[ "$status" == "low" ]]; then
-        echo "$pid:$name:$categ:$supp:$price:$quan:$sales" >> "$low"
-    else
-        echo "$pid:$name:$categ:$supp:$price:$quan:$sales" >> "$avail"
-    fi
-done < "$prods"  # Correctly reading from the dataset file
-
-# Clear screen and display the results
-clear
-center_text_center_align "=================================================="
-center_text_center_align "Product Stock Status"
-center_text_center_align "=================================================="
-echo -e "\n"
-
-if [[ "$option" =~ [Ll]ow ]]; then
-    if [[ ! -s "$low" ]]; then
-	center_text_align "The inventory has sufficient stock!"
-	read -p "$(center_text_align 'Press [ENTER] to continue...')" enter
-	continue
-    fi
-    center_text_center_align "Low Stock Products"
+# Display stock products
+display_products() {
+    local option="$1"
+    clear
     center_text_center_align "=================================================="
+    center_text_center_align "Product Stock Status"
+    center_text_center_align "=================================================="
+    echo -e "\n"
 
-    # Use printf to format the headers and pass it directly to center_text
+    if [[ "$option" =~ [Ll]ow ]]; then
+        if [[ ! -s "$low" ]]; then
+            center_text_center_align "The inventory has sufficient stock!"
+            read -p "$(center_text_center_align 'Press [ENTER] to continue...')" enter
+            return
+        fi
+        center_text_center_align "Low Stock Products"
+    else
+        if [[ ! -s "$avail" ]]; then
+            center_text_center_align "All products are low on stock! Please restock as soon as possible!"
+            read -p "$(center_text_center_align 'Press [ENTER] to continue...')" enter
+            return
+        fi
+        center_text_center_align "Available Products"
+    fi
+
     center_text "$(printf '%-15s%-35s%-30s%-5s\n' 'Product ID' 'Name' 'Category' 'Quantity')"
     center_text "$(printf '%-15s%-35s%-30s%-5s\n' '============' '============' '============' '============')"
-    # Print the data rows, formatting and centering each one
+
+    local product_list="$([[ "$option" =~ [Ll]ow ]] && echo "$low" || echo "$avail")"
     while IFS=":" read -r pid name categ supp price quan sale; do
         center_text "$(printf '%-15s%-35s%-30s%-5s\n' "$pid" "$name" "$categ" "$quan")"
-    done < "$low"
+    done < "$product_list"
+    center_text "$(wc -l "$option") products are $option"
     read -p "$(center_text 'Press [ENTER] to go back...')" enter
-elif [[ "$option" =~ [Aa]vailable ]]; then
-    if [[ ! -s "$avail" ]];  then
-	center_text_align "All products are low on stock! Please restock as soon as possible!"
-	read -p "$(center_text_align 'Press [ENTER] to continue...')" enter
-	continue
+}
+
+# Main loop
+while true; do
+    clear
+    read -p "$(center_text 'Check [Available] or [Low] Stock products (Press any key to exit): ')" option
+    clear_temp_files
+    load_products
+
+    if [[ "$option" =~ [Aa]vailable || "$option" =~ [Ll]ow ]]; then
+        display_products "$option"
+    else
+        center_text "Exiting..."
+        read -p "$(center_text 'Press [ENTER] to continue...')" enter
+        break
     fi
-    center_text_center_align "Available Products"
-    center_text_center_align "=================================================="
-    
-    # Use printf to format the headers and pass it directly to center_text
-    center_text "$(printf '%-15s%-35s%-30s%-5s\n' 'Product ID' 'Name' 'Category' 'Quantity')"
-    center_text "$(printf '%-15s%-35s%-30s%-5s\n' '============' '============' '============' '============')"
-    # Print the data rows, formatting and centering each one
-    while IFS=":" read -r pid name categ supp price quan sale; do
-        center_text "$(printf '%-15s%-35s%-30s%-5s\n' "$pid" "$name" "$categ" "$quan")"
-    done < "$avail"
-    read -p "$(center_text 'Press [ENTER] to go back...')" enter
-else
-    center_text "Exiting..."
-    read -p "$(center_text 'Press [ENTER] to continue...')" enter
-    break
-fi
+done
+
 # Clean up temporary files
 rm "$low" "$avail"
-
-done
