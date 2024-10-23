@@ -47,7 +47,7 @@ echo -e "\n"
 if [[ "$option" =~ [Ll]ow ]]; then
     center_text_center_align "Low Stock Products"
     center_text_center_align "=================================================="
-    printf "%-10s%-35s%-15s%-5s\n" "$(center_text 'Product ID')" "$(center_text 'Name')" "$(center_text 'Category')" "$(center_text 'Quantity')"
+    printf "%-10s%-35s%-15s%-5s\n" "Product ID" "Name" "Category" "Quantity" | center_text
     while IFS=":" read -r pid name categ supp price quan sale; do
         printf "%-30s%-35s%-30s%-30s\n" "$pid" "$name" "$categ" "$quan"
     done < "$low"
