@@ -76,9 +76,9 @@ display_products() {
 
     echo -e "\n"
     center_text_center_align "====================================="
-    center_text_center_align "$product_count products are $option"
+    center_text_center_align "$product_count products are $choice"
     center_text_center_align "====================================="  
-  read -p "$(center_text 'Press [ENTER] to go back...')" enter
+    read -p "$(center_text 'Press [ENTER] to go back...')" enter
 }
 
 # Main loop
