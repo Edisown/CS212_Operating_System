@@ -40,24 +40,33 @@ done < "$prods"  # Correctly reading from the dataset file
 
 # Clear screen and display the results
 clear
-center_text_center_align "=================================================="
-center_text_center_align "Product Stock Status"
-center_text_center_align "=================================================="
+center_text "=================================================="
+center_text "Product Stock Status"
+center_text "=================================================="
 echo -e "\n"
+
 if [[ "$option" =~ [Ll]ow ]]; then
-    center_text_center_align "Low Stock Products"
-    center_text_center_align "=================================================="
-    printf "%-10s%-35s%-15s%-5s\n" "Product ID" "Name" "Category" "Quantity" | center_text
+    center_text "Low Stock Products"
+    center_text "=================================================="
+    
+    # Use printf to format the headers and pass it directly to center_text
+    center_text "$(printf '%-10s%-35s%-15s%-5s\n' 'Product ID' 'Name' 'Category' 'Quantity')"
+    
+    # Print the data rows, formatting and centering each one
     while IFS=":" read -r pid name categ supp price quan sale; do
-        printf "%-30s%-35s%-30s%-30s\n" "$pid" "$name" "$categ" "$quan"
+        center_text "$(printf '%-30s%-35s%-30s%-30s\n' "$pid" "$name" "$categ" "$quan")"
     done < "$low"
 else
-    center_text_center_align "Available Products"
-    center_text_center_align "=================================================="
-    printf "%-30s%-35s%-30s%-30s\n" "Product ID" "Name" "Category" "Quantity"
-    printf "%-30s%-35s%-30s%-30s\n" "============" "============" "============" "============"
+    center_text "Available Products"
+    center_text "=================================================="
+    
+    # Use printf to format the headers and pass it directly to center_text
+    center_text "$(printf '%-30s%-35s%-30s%-30s\n' 'Product ID' 'Name' 'Category' 'Quantity')"
+    center_text "$(printf '%-30s%-35s%-30s%-30s\n' '============' '============' '============' '============')"
+    
+    # Print the data rows, formatting and centering each one
     while IFS=":" read -r pid name categ supp price quan sale; do
-        printf "%-30s%-35s%-30s%-30s\n" "$pid" "$name" "$categ" "$quan"
+        center_text "$(printf '%-30s%-35s%-30s%-30s\n' "$pid" "$name" "$categ" "$quan")"
     done < "$avail"
 fi
 
