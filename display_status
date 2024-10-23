@@ -21,17 +21,22 @@ clear_temp_files() {
 load_products() {
     while IFS=":" read -r pid name categ supp price quan sales max; do
         twenty_percent=$((max / 5))
-        stock_status="avail"
         if (( quan <= twenty_percent )); then
-            stock_status="low"
-        fi
-        
-        if [[ "$stock_status" == "low" ]]; then
             echo "$pid:$name:$categ:$supp:$price:$quan:$sales" >> "$low"
         else
             echo "$pid:$name:$categ:$supp:$price:$quan:$sales" >> "$avail"
         fi
     done < "$prods"
+}
+
+# Count products in a file
+count_products() {
+    local file="$1"
+    if [[ -s "$file" ]]; then
+        echo "$(wc -l < "$file")"
+    else
+        echo "0"
+    fi
 }
 
 # Display stock products
@@ -66,7 +71,9 @@ display_products() {
     while IFS=":" read -r pid name categ supp price quan sale; do
         center_text "$(printf '%-15s%-35s%-30s%-5s\n' "$pid" "$name" "$categ" "$quan")"
     done < "$product_list"
-    center_text "$(wc -l "$option") products are $option"
+
+    local product_count=$(count_products "$product_list")
+    center_text "$product_count products are $option"
     read -p "$(center_text 'Press [ENTER] to go back...')" enter
 }
 
