@@ -4,9 +4,9 @@
 # Script: Create Product
 #====================================
 source ./res/my_funcs
-clear
 
 while true; do
+    clear
     echo -e "\n\n\n\n\n"
     center_text "Add Product"
     center_text "======================"
