@@ -41,14 +41,14 @@ count_products() {
 
 # Display stock products
 display_products() {
-    local option="$1"
+    local choice="$1"
     clear
     center_text_center_align "=================================================="
     center_text_center_align "Product Stock Status"
     center_text_center_align "=================================================="
     echo -e "\n"
 
-    if [[ "$option" =~ [Ll]ow ]]; then
+    if [[ "$choice" =~ [Ll]ow ]]; then
         if [[ ! -s "$low" ]]; then
             center_text_center_align "The inventory has sufficient stock!"
             read -p "$(center_text_center_align 'Press [ENTER] to continue...')" enter
@@ -67,30 +67,42 @@ display_products() {
     center_text "$(printf '%-15s%-35s%-30s%-5s\n' 'Product ID' 'Name' 'Category' 'Quantity')"
     center_text "$(printf '%-15s%-35s%-30s%-5s\n' '============' '============' '============' '============')"
 
-    local product_list="$([[ "$option" =~ [Ll]ow ]] && echo "$low" || echo "$avail")"
+    local product_list="$([[ "$choice" =~ [Ll]ow ]] && echo "$low" || echo "$avail")"
     while IFS=":" read -r pid name categ supp price quan sale; do
         center_text "$(printf '%-15s%-35s%-30s%-5s\n' "$pid" "$name" "$categ" "$quan")"
     done < "$product_list"
 
     local product_count=$(count_products "$product_list")
-    center_text "$product_count products are $option"
-    read -p "$(center_text 'Press [ENTER] to go back...')" enter
+
+    echo -e "\n"
+    center_text_center_align "====================================="
+    center_text_center_align "$product_count products are $option"
+    center_text_center_align "====================================="  
+  read -p "$(center_text 'Press [ENTER] to go back...')" enter
 }
 
 # Main loop
 while true; do
     clear
-    read -p "$(center_text 'Check [Available] or [Low] Stock products (Press any key to exit): ')" option
+    
     clear_temp_files
     load_products
-
-    if [[ "$option" =~ [Aa]vailable || "$option" =~ [Ll]ow ]]; then
-        display_products "$option"
-    else
-        center_text "Exiting..."
-        read -p "$(center_text 'Press [ENTER] to continue...')" enter
-        break
-    fi
+    center_text_center_align "=============================="
+    center_text_center_align "View Products"
+    center_text_center_align "=============================="
+    echo -e "\n"
+    center_text "[A] Available Products"
+    center_text "[L] Low Stock Products"
+    center_text "[E] Exit"
+    read -p "$(center_text 'Choice: ')" choice
+    
+    case "$choice" in
+	[Aa]) display_products "available"
+	[Ll]) display_products "low"
+	[Ee]) center_text_center_align "Exiting..."; read -p "$(center_text_center_align 'Press [ENTER] to continue...')" enter; break 
+        *) center_text_center_align "Please choose from the valid options!"
+    esac
+    
 done
 
 # Clean up temporary files

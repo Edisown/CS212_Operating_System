@@ -35,11 +35,11 @@ do
 	[Pp][Cc][Cc])
 		bash ./prod_quant_per_cat;;
 	[Tt][Ss][Pp])
-		bash ./top_selling_products;;
+		bash ./top_selling_prods;;
 	[Dd][Pp][Cc])
 		bash ./disp_prod_by_cat;;
 	[Dd][Pp][Ss])
-		bash ./display_prod_by_status;;
+		bash ./display_status;;
 	*)
 		center_text "-- Invalid Entry, Try again --"
 		continue;;

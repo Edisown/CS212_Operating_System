@@ -4,20 +4,35 @@ clear
 source ./res/my_funcs
 prods="./res/IPSdataset.txt"
 
-# Get the top five products by sales
-top_five=$(sort -t ':' -k7,7nr "$prods" | head -n 5)
+# Check if the dataset exists and is not empty
+if [[ ! -f "$prods" || ! -s "$prods" ]]; then
+    echo "Error: Product dataset not found or is empty."
+    exit 1
+fi
 
-echo -e "\n\n\n\n\n"
-# Print header
-i=8
-tput cup 5 10; printf "%-30s%-30s%-30s\n" "===============" "===============" "==============="
-tput cup 6 10; printf "%-30s%-30s%-30s\n" "Product" "Category" "Units Sold"
-tput cup 7 10; printf "%-30s%-30s%-30s\n" "===============" "===============" "==============="
-# Read and print the top five products
-while IFS=":" read -r pid name categ supp price quan sales; do
-	tput cup "$i" 10; printf "%-30s%-30s%-30s\n" "$name" "$categ" "$sales"
-	((i++))
-done <<< "$top_five"
-echo -e "\n\n"
-read -p "$(center_text 'Press [ENTER] to continue...')" enter
+# Function to display the top five products by sales
+display_top_five() {
+    local top_five
+    top_five=$(sort -t ':' -k7,7nr "$prods" | head -n 5)
+
+    echo -e "\n\n\n\n\n"
+    
+    # Print header
+    center_text_center_align "Top 5 Most Selling Products"
+    echo -e "\n\n"
+    center_text "$(printf '%-30s%-30s%-30s\n' '===============' '===============' '===============')"
+    center_text "$(printf '%-30s%-30s%-30s\n' 'Product Name' 'Category' 'Units Sold')"
+    center_text "$(printf '%-30s%-30s%-30s\n' '===============' '===============' '===============')"
+    
+    # Read and print the top five products
+    while IFS=":" read -r pid name categ supp price quan sales max; do
+        center_text "$(printf '%-30s%-30s%-30s\n' "$name" "$categ" "$sales")"
+    done <<< "$top_five"
+
+    echo -e "\n\n"
+    read -p "$(center_text 'Press [ENTER] to continue...')" enter
+}
+
+# Call the function to display the top products
+display_top_five
 clear
