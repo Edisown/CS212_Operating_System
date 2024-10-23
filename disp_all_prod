@@ -15,11 +15,11 @@ source ./res/my_funcs
 increment=7
 
 clear
-tput cup 5 10;printf "%-10s %-35s %-20s %-20s %10s %10s %10s %15s\n" "PID" "Product" "Category" "Supplier" "Price" "Quantity" "Sales" "Threshold"
-tput cup 6 10;echo -e "========================================================================================================================================="
+center_text "$(printf '%-10s %-35s %-20s %-20s %10s %10s %10s %15s\n' 'PID' 'Product' 'Category' 'Supplier' 'Price' 'Quantity' 'Sales' 'Threshold')"
+center_text "========================================================================================================================================="
 while IFS=':' read -r PID pName pCategory pSupplier price count sales pThreshold
 do
-	tput cup "$increment" 10;printf "%-10s %-35s %-20s %-20s %10s %10s %10s %15s\n" "$PID" "$pName" "$pCategory" "$pSupplier" "$price" "$count" "$sales" "$pThreshold" 
+	center_text "$(printf '%-10s %-35s %-20s %-20s %10s %10s %10s %15s\n' "$PID" "$pName" "$pCategory" "$pSupplier" "$price" "$count" "$sales" "$pThreshold")" 
 	((increment++))
 done < "$products"
 echo -e "\n\n"

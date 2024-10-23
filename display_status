@@ -95,12 +95,12 @@ while true; do
     center_text "[L] Low Stock Products"
     center_text "[E] Exit"
     read -p "$(center_text 'Choice: ')" choice
-    
+
     case "$choice" in
-	[Aa]) display_products "available"
-	[Ll]) display_products "low"
-	[Ee]) center_text_center_align "Exiting..."; read -p "$(center_text_center_align 'Press [ENTER] to continue...')" enter; break 
-        *) center_text_center_align "Please choose from the valid options!"
+	[Aa]) display_products "available" ;;
+	[Ll]) display_products "low" ;;
+	[Ee]) center_text_center_align "Exiting..."; read -p "$(center_text_center_align 'Press [ENTER] to continue...')" enter; break ;; 
+        *) center_text_center_align "Please choose from the valid options!" ;;
     esac
     
 done

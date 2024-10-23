@@ -8,9 +8,10 @@ source ./res/my_funcs
 while true; do
     clear
     echo -e "\n\n\n\n\n"
-    center_text "Add Product"
-    center_text "======================"
-    center_text "Product Properties"
+    center_text_center_align "========================"
+    center_text_center_align "Add Product"
+    center_text_center_align "========================"
+    center_text_center_align "Product Properties"
 
     read -p "$(center_text 'Product ID: ')" pid
     read -p "$(center_text 'Product Name: ')" pname
