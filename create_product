@@ -106,7 +106,7 @@ while true; do
         echo -e "\n"
 
         # Append the new product to the dataset file with slot allotment
-        echo "$pid:$pname:$category:$supplier:$price:$quantity:$slot_allotment" >> ./res/IPSdataset.txt
+        echo "$pid:$pname:$category:$supplier:$price:$quantity:0:$product_allotment" >> ./res/IPSdataset.txt
 
         read -p "$(center_text 'Add more? [Y/N]: ')" option
         if [[ "$option" == [Yy] ]]; then
