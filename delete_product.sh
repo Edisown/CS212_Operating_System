@@ -44,8 +44,6 @@ else
         center_text "                    Price         : $price"
         center_text "                    Quantity      : $quantity"
         center_text "                    Sales         : $sales"
-        center_text "     Maximum Threshhold capacity  : $maximum_Threshhold_capacity"
-        center_text "                    Status        : $Status"
         center_text "----------------------------------------------------------------"
     done
 
