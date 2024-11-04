@@ -5,6 +5,26 @@
 #====================================
 source ./res/my_funcs
 
+# Function to get slot allotment based on category
+get_product_allotment() {
+    local category=$1
+    case "$category" in
+        "Condiments") echo 160 ;;
+        "Chips & Crackers") echo 140 ;;
+        "Pet Supplies") echo 100 ;;
+        "Pasta & Noodles") echo 120 ;;
+        "Frozen Meats") echo 240 ;;
+        "Frozen Desserts") echo 120 ;;
+        "Bread & Bakery") echo 200 ;;
+        "Biscuits & Cookies") echo 140 ;;
+        "Beverages") echo 300 ;;
+        "Instant Noodles") echo 100 ;;
+        "Dairy & Eggs") echo 200 ;;
+        "Canned Goods") echo 180 ;;
+        *) echo "Invalid" ;;
+    esac
+}
+
 while true; do
     clear
     echo -e "\n\n\n\n\n"
@@ -54,7 +74,7 @@ while true; do
         "DE") category="Dairy & Eggs" ;;
         "FD") category="Frozen Desserts" ;;
         "BV") category="Beverages" ;;
-        "BB") category="Bread & Bakery" ;;  # Fixed missing '='
+        "BB") category="Bread & Bakery" ;;
         "IN") category="Instant Noodles" ;;
         "BC") category="Biscuits & Cookies" ;;
         "CG") category="Canned Goods" ;;
@@ -73,6 +93,8 @@ while true; do
             break
         fi
     else
+        product_allotment=$(get_product_allotment "$category")
+        
         center_text "Adding product..."
         center_text "==============================="
         center_text "Product ID: $pid"
@@ -83,8 +105,8 @@ while true; do
         center_text "Quantity: $quantity"
         echo -e "\n"
 
-        # Append the new product to the dataset file
-        echo "$pid:$pname:$category:$supplier:$price:$quantity:0" >> ./res/IPSdataset.txt
+        # Append the new product to the dataset file with slot allotment
+        echo "$pid:$pname:$category:$supplier:$price:$quantity:$slot_allotment" >> ./res/IPSdataset.txt
 
         read -p "$(center_text 'Add more? [Y/N]: ')" option
         if [[ "$option" == [Yy] ]]; then
