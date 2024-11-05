@@ -1,5 +1,6 @@
 #!/bin/bash
 #==================================================
+# Author: Dadpaas, Renz C.
 # Script Name   :       check_stock_status
 # Purpose       :       Displays products based on stock status (Available or Low).
 #==================================================
