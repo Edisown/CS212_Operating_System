@@ -1,4 +1,11 @@
 #!/bin/bash
+#=================================
+# Author: Dadpaas, Renz C.
+# Script: top_selling_prods
+# Purpose: Extracts the top 5 most
+           selling products in the
+           inventory
+#=================================
 clear
 
 source ./res/my_funcs
